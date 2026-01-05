@@ -1,0 +1,56 @@
+.footer-app {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 60px;
+  position: absolute;
+  bottom: 0;
+
+  .footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  .list-unstyled {
+    padding-left: 0;
+  }
+
+  .footer-link,
+  .footer-text {
+    font-size: 0.95rem;
+    color: #cccccc;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .social-icons {
+    .social-link {
+      color: #ffffff;
+      opacity: 0.8;
+      transition: opacity 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        color: $primary;
+      }
+    }
+  }
+
+  .footer-copyright-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+  }
+
+  .footer-copyright {
+    font-size: 0.85rem;
+    color: #999999;
+  }
+}

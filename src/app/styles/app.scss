@@ -1,0 +1,35 @@
+// sass-lint:disable-all
+@import "custom";
+@import "~bootstrap";
+
+@import "accessibility";
+
+@import "./components/area";
+@import "./components/banner";
+@import "./components/base";
+@import "./components/card";
+@import "./components/carousel";
+@import "./components/chat";
+// @import "./components/chat-n8n";
+@import "./components/contact";
+@import "./components/entries";
+@import "./components/events";
+@import "./components/fonts";
+@import "./components/footer";
+@import "./components/formalities";
+@import "./components/gallery";
+@import "./components/header";
+@import "./components/hero";
+@import "./components/maps";
+@import "./components/modal";
+@import "./components/navbar";
+@import "./components/news";
+@import "./components/not-found";
+@import "./components/other";
+@import "./components/program";
+@import "./components/search-form";
+@import "./components/search";
+@import "./components/section";
+@import "./components/share-social";
+@import "./components/test";
+@import "./components/typography";

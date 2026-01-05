@@ -1,0 +1,75 @@
+.navbar {
+  padding: 20px;
+  background-color: darken($primary, 0);
+
+  &-brand {
+    .mobile {
+      width: 140px;
+      height: auto;
+      display: none;
+    }
+
+    .desktop {
+      width: 400px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      .mobile {
+        display: block;
+      }
+
+      .desktop {
+        display: none;
+      }
+    }
+  }
+
+  &-toggler {
+    padding: 16px;
+    border-radius: 0;
+    border: 0;
+    color: white;
+    scale: 1.2;
+  }
+
+  &-nav {
+    gap: 10px;
+
+    .nav-link {
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.01rem;
+      color: rgba(white, 0.8);
+
+      &.active {
+        color: white;
+      }
+    }
+
+    .dropdown {
+
+      &-menu {
+        border-radius: 0;
+      }
+
+      &-item {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $gray-800;
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    &-nav {
+      margin-top: 10px;
+    }
+  }
+}
