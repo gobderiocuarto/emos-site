@@ -1,11 +1,10 @@
-import React, { Suspense } from 'react'
-import Slides from './Slides'
-import SearchForm from '../commons/SearchForm'
-
+import React, { Suspense } from "react";
+import Slides from "./Slides";
+import SearchForm from "../commons/SearchForm";
 
 export default function Hero() {
   return (
-    <section className='hero' data-read>
+    <section className="hero" data-read>
       <div className="hero-slides">
         <Slides />
       </div>
@@ -13,7 +12,7 @@ export default function Hero() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-11 col-md-8">
-              <h1 className='hero-title'>Bienvenido a Río Cuarto</h1>
+              <h1 className="hero-title">Bienvenido a Río Cuarto</h1>
               <Suspense>
                 <SearchForm />
               </Suspense>
@@ -22,5 +21,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

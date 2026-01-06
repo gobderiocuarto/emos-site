@@ -1,7 +1,7 @@
 // components/ContactItem.jsx
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 // 1. Mapeo de Iconos
 const ICONS = {
@@ -21,42 +21,44 @@ const ICONS = {
 };
 
 // Función de utilidad para limpiar números de teléfono
-const cleanValue = (value) => value.replace(/[\s()-]/g, '');
+const cleanValue = (value) => value.replace(/[\s()-]/g, "");
 
 /**
  * Genera el href semántico y determina el target.
  */
 const getLinkDetails = (type, value) => {
   let href = null;
-  let target = '_self';
+  let target = "_self";
   let isLink = true;
 
   switch (type) {
-    case 'phone':
+    case "phone":
       href = `tel:${cleanValue(value)}`;
       break;
-    case 'whatsapp':
+    case "whatsapp":
       href = `https://wa.me/${cleanValue(value)}`;
-      target = '_blank';
+      target = "_blank";
       break;
-    case 'email':
+    case "email":
       href = `mailto:${value}`;
       break;
-    case 'web':
-    case 'facebook':
-    case 'instagram':
-    case 'twitter':
-    case 'youtube':
-    case 'tiktok':
-    case 'linkedin':
+    case "web":
+    case "facebook":
+    case "instagram":
+    case "twitter":
+    case "youtube":
+    case "tiktok":
+    case "linkedin":
       // Aseguramos protocolo para enlaces externos
-      href = value.startsWith('http') ? value : `https://${value}`;
-      target = '_blank';
+      href = value.startsWith("http") ? value : `https://${value}`;
+      target = "_blank";
       break;
-    case 'address':
+    case "address":
       // Enlace a Google Maps
-      href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
-      target = '_blank';
+      href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        value
+      )}`;
+      target = "_blank";
       break;
     default:
       // schedules, o cualquier otro tipo que no deba ser un link
@@ -74,7 +76,12 @@ const getLinkDetails = (type, value) => {
  * @param {boolean} isSocial - Indica si es un icono social (solo icono, sin texto).
  * @param {string | null} label - Texto opcional a mostrar encima del valor (e.g., "URGENCIAS").
  */
-export default function ContactItem({ type, value, isSocial = false, label = null }) {
+export default function ContactItem({
+  type,
+  value,
+  isSocial = false,
+  label = null,
+}) {
   if (!value) return null;
 
   const icon = ICONS[type] || null;
@@ -82,7 +89,17 @@ export default function ContactItem({ type, value, isSocial = false, label = nul
   let displayValue = value;
 
   // Lógica para mostrar el nombre de la red social en lugar de la URL completa
-  if (['facebook', 'instagram', 'twitter', 'youtube', 'tiktok', 'linkedin'].includes(type) && !isSocial) {
+  if (
+    [
+      "facebook",
+      "instagram",
+      "twitter",
+      "youtube",
+      "tiktok",
+      "linkedin",
+    ].includes(type) &&
+    !isSocial
+  ) {
     displayValue = type.charAt(0).toUpperCase() + type.slice(1);
   }
 
@@ -115,8 +132,12 @@ export default function ContactItem({ type, value, isSocial = false, label = nul
       <div className="contact-item--info">
         <span className="contact-item--text">{displayValue} </span>
         {label && (
-          <span className="contact-item--label"
-            style={{ fontSize: '0.75rem', lineHeight: 1 }}>({label})</span>
+          <span
+            className="contact-item--label"
+            style={{ fontSize: "0.75rem", lineHeight: 1 }}
+          >
+            ({label})
+          </span>
         )}
       </div>
     </>
@@ -128,7 +149,7 @@ export default function ContactItem({ type, value, isSocial = false, label = nul
         <Link
           href={href}
           target={target}
-          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          rel={target === "_blank" ? "noopener noreferrer" : undefined}
           className="contact-item--link"
         >
           {Content}

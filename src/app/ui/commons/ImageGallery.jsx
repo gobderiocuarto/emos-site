@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import ImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/css/image-gallery.css';
+import React from "react";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function MyImageGallery({ photos }) {
   // Mapea los datos de tu API al formato que la librería necesita

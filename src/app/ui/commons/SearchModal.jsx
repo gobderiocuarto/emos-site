@@ -1,4 +1,3 @@
-// components/SearchModal.jsx
 "use client";
 import Modal from "react-bootstrap/Modal";
 import Search from "./SearchForm";

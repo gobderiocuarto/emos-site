@@ -1,4 +1,4 @@
-import ImageGallery from "../commons/ImageGallery";
+import MyImageGallery from "../commons/ImageGallery";
 import ShareSocial from "../commons/ShareSocial";
 import ListIcons from "../icons/ListIcons";
 
@@ -23,20 +23,16 @@ export default function DetailNews({ detailNews }) {
     body,
     embedded,
     media,
-    owner_area
+    owner_area,
   } = detailNews;
 
   return (
     <article>
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
-        <span>
-          {new Date(published_at).toLocaleDateString()}
-        </span>
+        <span>{new Date(published_at).toLocaleDateString()}</span>
         {`>`}
         <span>{owner_area.name}</span>
-
-
       </div>
       <h1 className="news-detail--title">{title}</h1>
       {/* eslint-disable-next-line */}
@@ -63,7 +59,7 @@ export default function DetailNews({ detailNews }) {
       {media && media.gallery && media.gallery.length > 0 && (
         <div className="news-detail--gallery">
           <h3 className="news-detail--subtitle">Galería de Imágenes</h3>
-          <ImageGallery photos={media.gallery} />
+          <MyImageGallery photos={media.gallery} />
         </div>
       )}
     </article>

@@ -1,16 +1,15 @@
 import { Suspense } from "react";
-import SearchForm from "@/app/ui/commons/SearchForm";
 import SearchResults from "@/app/ui/search/SearchResults";
 import { fetchSearch } from "@/app/lib/DataSearch";
 import RelatedNews from "@/app/ui/news/RelatedNews";
+import SearchForm from "@/app/ui/commons/SearchForm";
 
 export const metadata = {
-  title: 'Buscador',
-  description: 'Buscador de contenidos del Gobierno de Río Cuarto',
+  title: "Buscador",
+  description: "Buscador de contenidos del Gobierno de Río Cuarto",
 };
 
 export default async function BuscarPage({ searchParams }) {
-
   const searchQuery = (await searchParams.q) || "";
 
   return (

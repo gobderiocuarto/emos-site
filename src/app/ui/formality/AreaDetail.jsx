@@ -29,7 +29,7 @@ export default function AreaDetail({ area }) {
                 <b>{area.parent.name}</b>
               </div>
               {area.parent.contact.map((item, index) => (
-                // 
+                //
                 <ContactItem
                   key={item.index}
                   type={item.type}
@@ -39,7 +39,6 @@ export default function AreaDetail({ area }) {
               ))}
             </>
           )}
-
         </div>
       </div>
     </section>
