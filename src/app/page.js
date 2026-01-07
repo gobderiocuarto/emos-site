@@ -22,6 +22,15 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      
+      <section className="container mb-5">
+        <HeaderSection title={"Contactos"}  />
+        <div className="row">
+          <div className="col-lg-8">
+            
+          </div>
+        </div>
+      </section>
 
       <div className="container mb-4">
         <HeaderSection title="Últimas Noticias" />

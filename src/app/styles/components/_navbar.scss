@@ -1,5 +1,5 @@
 .navbar {
-  padding: 20px;
+  padding: 1px;
   background-color: darken($primary, 0);
 
   &-brand {
@@ -10,7 +10,7 @@
     }
 
     .desktop {
-      width: 400px;
+      width: 225px;
       height: auto;
       display: block;
     }

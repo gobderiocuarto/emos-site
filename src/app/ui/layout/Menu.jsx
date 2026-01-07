@@ -7,8 +7,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
-import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
+import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
+import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
 import SearchModal from "../commons/SearchModal";
 
 export default function Menu() {
