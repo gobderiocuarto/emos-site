@@ -20,20 +20,6 @@ export default async function FormalitiesFilters() {
           <Search placeholder={`Buscar...`} />
         </div>
         <div className="col-md-4">
-          <h5>Áreas</h5>
-          <Select
-            data={areas}
-            collection="area"
-            placeholder="Todas las áreas"
-          />
-        </div>
-        <div className="col-md-4">
-          <h5>Categorías</h5>
-          <Select
-            data={categories}
-            collection="category"
-            placeholder="Todas las categorías"
-          />
         </div>
       </div>
     </div>
