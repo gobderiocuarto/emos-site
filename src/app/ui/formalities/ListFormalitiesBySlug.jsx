@@ -9,7 +9,7 @@ export default async function ListFormalitiesBySlug({ area }) {
 
   const params = `?area=${area.slug}`;
   const allFormalities = await fetchFormalities(params);
-  const formalities = allFormalities.slice(0, 12);
+  const formalities = allFormalities.slice(0, 6);
 
   return (
     <div>
@@ -21,7 +21,7 @@ export default async function ListFormalitiesBySlug({ area }) {
         <>
           <div className="row formalities-list">
             {formalities.map((formality) => (
-              <div className="col-12 col-lg-6" key={formality.id}>
+              <div className="col-12 col-md-4 mb-4" key={formality.id}>
                 <FormalitiesCard formality={formality} />
               </div>
             ))}
