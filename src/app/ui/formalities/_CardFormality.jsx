@@ -7,7 +7,7 @@ export default function FormalitiesCard({ formality }) {
   return (
     <div className="card">
       <div className="card-body">
-        <div className="row justify-content-between">
+        <div className="row g-3 justify-content-between">
           <div className="col-md-9">
             <h5 className="card-title">{formality.title}</h5>
             <p className="card-text">{formality.summary}</p>

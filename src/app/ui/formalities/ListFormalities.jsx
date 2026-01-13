@@ -24,7 +24,7 @@ export default async function FormalitiesList({ formalities }) {
   if (!formalities || formalities.length === 0) {
     return (
       <section className="formalities-list">
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-12">
             <div className="alert alert-warning">
               No se encontraron trámites.
@@ -42,15 +42,15 @@ export default async function FormalitiesList({ formalities }) {
     <section className="formalities-list mt-3">
       {categoryNames.map((categoryName) => (
         <div key={categoryName} className="category-group mb-5">
-          <div className="row">
+          <div className="row ">
             <div className="col-md-12">
               <h2 className="mb-4 text-primary">{categoryName}</h2>
             </div>
           </div>
 
-          <div className="row">
+          <div className="row g-4">
             {groupedFormalities[categoryName].map((formality) => (
-              <div key={formality.id} className="col-md-4 mb-4">
+              <div key={formality.id} className="col-12 col-sm-6 col-lg-4">
                 <FormalitiesCard formality={formality} />
               </div>
             ))}

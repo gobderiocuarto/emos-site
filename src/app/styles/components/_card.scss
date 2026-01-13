@@ -10,7 +10,6 @@
   .card {
     //border-radius: $border-radius;
     border-color: rgba($gray-900, 0.2);
-    margin-bottom: 20px;
 
     &-img {
       width: 100%;
@@ -46,6 +45,7 @@
       display: flex;
       align-items: center;
       min-height: $card-height;
+      // padding: 16px;
       //border-radius: 0 $border-radius $border-radius 0;
     }
 

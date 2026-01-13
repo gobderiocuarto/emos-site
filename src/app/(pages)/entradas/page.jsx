@@ -23,7 +23,7 @@ export default async function Entries({ searchParams }) {
   return (
     <div className="entries">
       <div className="container">
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-6">
             <HeaderSection title="Entries" subtitle={subtitle} />
           </div>
@@ -36,7 +36,7 @@ export default async function Entries({ searchParams }) {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-4">
             <EntriesList type="program" area={area} title="Programas y Servicios" />
           </div>

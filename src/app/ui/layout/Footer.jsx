@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <footer className="footer-app" data-read>
       <div className="container py-4 py-md-5">
-        <div className="row">
-          <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div className="row g-4">
+          <div className="col-lg-4 col-md-6">
             <h5 className="footer-title">Contacto Rápido</h5>
             <ul className="list-unstyled">
               <li>
@@ -36,7 +36,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div className="col-lg-4 col-md-6">
             <h5 className="footer-title">Enlaces Útiles</h5>
             <ul className="list-unstyled">
               <li>

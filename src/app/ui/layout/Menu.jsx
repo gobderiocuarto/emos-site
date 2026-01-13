@@ -42,6 +42,7 @@ export default function Menu() {
         data-read
       >
         <Container>
+          
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
             <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
@@ -65,28 +66,24 @@ export default function Menu() {
                 Noticias
               </Link>
               <Link
-                href="/tramites"
+                href=""
                 className={`nav-link ${
                   pathname === "/tramites" ? "active" : ""
                 }`}
                 onClick={handleLinkClick}
               >
-                Trámites
+                Biblioteca Ambiental
               </Link>
               <Link
-                href="/areas"
-                className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
+                href="/design"
+                className={`nav-link ${
+                  pathname === "/design" ? "active" : ""
+                }`}
                 onClick={handleLinkClick}
               >
-                Áreas
+                design
               </Link>
-              <Link
-                href="/mapas"
-                className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Mapas
-              </Link>
+              
               {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
                 Pagos y Deudas
               </Link> */}

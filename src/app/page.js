@@ -6,6 +6,7 @@ import Link from "next/link";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import AreaDetail from "./ui/formality/AreaDetail";
 import ListFormalitiesBySlug from "./ui/formalities/ListFormalitiesBySlug";
+import ContactsFormailite from "./ui/formalities/ContactsFormailite";
 
 export default async function Home() {
   const area = await fetchAreaBySlug("emos");
@@ -13,31 +14,18 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-
-      <section className="container mb-5">
-        <HeaderSection title={area ? area.name : "Emos"}  />
-        <div className="row">
-          <div className="col-lg-8">
-            <ListFormalitiesBySlug area={area} />
-          </div>
-        </div>
-      </section>
-      
-      <section className="container mb-5">
-        <HeaderSection title={"Contactos"}  />
-        <div className="row">
-          <div className="col-lg-8">
-            
-          </div>
-        </div>
-      </section>
-
+      <ListFormalitiesBySlug area={area} />
+      <div className="container mb-4">
+        <ContactsFormailite/>
+      </div>
       <div className="container mb-4">
         <HeaderSection title="Últimas Noticias" />
         <ListNews limit={3} />
-        <Link href="/noticias" className="btn btn-dark mb-5">
-          Ver más noticias
-        </Link>
+        
+          <Link href="/noticias" className="btn btn-dark mt-3">
+            Ver más noticias
+          </Link>
+        
       </div>
     </main>
   );

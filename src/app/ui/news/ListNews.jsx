@@ -9,7 +9,7 @@ export default async function ListNews({ page, limit, area }) {
 
   return (
     <section data-read className="news-list">
-      <div className="row">
+      <div className="row ">
         <Suspense fallback={<div>Cargando...</div>}>
           {posts.map((post) => (
             <CardNews key={post.id} post={post} />
