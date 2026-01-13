@@ -1,0 +1,418 @@
+import Link from "next/link";
+
+const servicesData = [
+  {
+    id: 1,
+    icon: "fas fa-store",
+    title: "GESTIÓN COMERCIAL",
+    contact: "358 4111 627",
+    type: "whatsapp"
+  },
+  {
+    id: 2,
+    icon: "fas fa-complaints",
+    title: "RECLAMOS",
+    contact: "358 4111 395",
+    type: "whatsapp"
+  },
+  {
+    id: 3,
+    icon: "fas fa-building",
+    title: "OFICINA ADMINISTRATIVA",
+    contact: "358 4768 405",
+    type: "phone"
+  },
+  {
+    id: 4,
+    icon: "fas fa-laptop",
+    title: "PAGO ONLINE",
+    subtitle: "OFICINA VIRTUAL",
+    type: "link"
+  },
+  {
+    id: 5,
+    icon: "fas fa-file-contract",
+    title: "CONSULTA",
+    subtitle: "HABILITACIÓN DE OBRAS",
+    type: "link"
+  },
+  {
+    id: 6,
+    icon: "fas fa-pencil-ruler",
+    title: "ESTUDIOS Y PROYECTOS",
+    type: "link"
+  },
+  {
+    id: 7,
+    icon: "fas fa-building",
+    title: "GESTIÓN COMERCIAL",
+    contact: "358 4035 476",
+    type: "whatsapp"
+  },
+  {
+    id: 8,
+    icon: "fas fa-shield",
+    title: "GUARDIA",
+    contact: "358 4768 401",
+    type: "phone"
+  },
+  {
+    id: 9,
+    icon: "fas fa-book",
+    title: "CONSULTA",
+    subtitle: "GUÍA DE TRÁMITES",
+    type: "link"
+  },
+  {
+    id: 10,
+    icon: "fas fa-id-card",
+    title: "CEDULÓN DIGITAL",
+    subtitle: "SUSCRIPCIÓN",
+    type: "link"
+  },
+  {
+    id: 11,
+    icon: "fas fa-download",
+    title: "MATRICULADOS",
+    subtitle: "DESCARGA DE FORMULARIOS",
+    type: "link"
+  }
+];
+
+export default function Design() {
+  const contactsWithNumbers = servicesData.filter(service => service.contact);
+  const specialServices = servicesData.filter(service => 
+    service.id === 4 || service.id === 10 || service.id === 11
+  );
+  const otherLinks = servicesData.filter(service => 
+    !service.contact && service.id !== 4 && service.id !== 10 && service.id !== 11
+  );
+
+  return (
+    <main className="design design-page" data-read>
+      <div className="container">
+        <div className="row g-4">
+          {/* Columna izquierda: Card agrupada de contactos */}
+          {contactsWithNumbers.length > 0 && (
+            <div className="col-12 col-lg-6">
+              <div className="card">
+                <div className="card-header">
+                  <h5 className="mb-0">Contactos Disponibles</h5>
+                </div>
+                <div className="card-body p-0">
+                  <div className="list-group list-group-flush">
+                    {contactsWithNumbers.map((service) => (
+                      <div key={service.id} className="list-group-item">
+                        <div className="d-flex align-items-start justify-content-between">
+                          <div className="d-flex align-items-start gap-3">
+                            <div className="card-icon">
+                              <i className={service.icon}></i>
+                            </div>
+                            <div className="flex-grow-1">
+                              <h6 className="card-title mb-1">{service.title}</h6>
+                              {service.subtitle && (
+                                <p className="card-subtitle text-muted mb-2">{service.subtitle}</p>
+                              )}
+                              {service.contact && (
+                                <p className="card-contact mb-0 fw-bold">{service.contact}</p>
+                              )}
+                            </div>
+                          </div>
+                          {(service.type === "whatsapp" || service.type === "phone") && (
+                            <div className="ms-2">
+                              {service.type === "whatsapp" && (
+                                <a href={`https://wa.me/54${service.contact.replace(/\s/g, "")}`} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-success">
+                                  <i className="fab fa-whatsapp"></i>
+                                </a>
+                              )}
+                              {service.type === "phone" && (
+                                <a href={`tel:${service.contact.replace(/\s/g, "")}`} className="btn btn-sm btn-primary">
+                                  <i className="fas fa-phone"></i>
+                                </a>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Columna derecha: Cards divididas para servicios especiales */}
+          {specialServices.length > 0 && (
+            <div className="col-12 col-lg-6">
+              <div className="row g-4">
+                {specialServices.map((service) => (
+                  <div key={service.id} className="col-12">
+                    <div className="card">
+                      <div className="card-header">
+                        <small>&nbsp;</small>
+                      </div>
+                      <div className="card-body">
+                        <div className="card-icon">
+                          <i className={service.icon}></i>
+                        </div>
+                        <div className="card-content">
+                          <h3 className="card-title">{service.title}</h3>
+                          {service.subtitle && (
+                            <p className="card-subtitle">{service.subtitle}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Otros enlaces (si existen) */}
+        {otherLinks.length > 0 && (
+          <div className="row g-4 mt-3">
+            {otherLinks.map((service) => (
+              <div key={service.id} className="col-12 col-sm-6 col-lg-4">
+                <div className="card">
+                  <div className="card-header">
+                    <small>&nbsp;</small>
+                  </div>
+                  <div className="card-body">
+                    <div className="card-icon">
+                      <i className={service.icon}></i>
+                    </div>
+                    <div className="card-content">
+                      <h3 className="card-title">{service.title}</h3>
+                      {service.subtitle && (
+                        <p className="card-subtitle">{service.subtitle}</p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Card agrupada completa con todas las opciones ordenadas */}
+        <div className="row g-4 mt-5">
+          <div className="col-12">
+            <div className="card">
+              <div className="card-header bg-primary text-white">
+                <h5 className="mb-0">Directorio Completo de Servicios</h5>
+              </div>
+              <div className="card-body p-0">
+                {/* Agrupación en 3 columnas: Contactos (más ancho) | Servicios Online | Otros Servicios */}
+                <div className="p-3">
+                  <div className="row">
+                    <div className="col-12 col-lg-6 pe-lg-4 border-lg-end">
+                      {contactsWithNumbers.length > 0 && (
+                        <>
+                          <h6 className="text-primary fw-bold mb-3">
+                            <i className="fas fa-phone me-2"></i>Contactos Directos
+                          </h6>
+                          <div className="row g-3">
+                            {contactsWithNumbers.map((service) => (
+                              <div key={service.id} className="col-12 col-md-6">
+                                <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                                  <div className="card-icon">
+                                    <i className={service.icon}></i>
+                                  </div>
+                                  <div className="flex-grow-1">
+                                    <h6 className="card-title mb-1">{service.title}</h6>
+                                    <p className="card-contact mb-0 fw-bold text-primary">{service.contact}</p>
+                                    <div className="mt-2">
+                                      {service.type === "whatsapp" && (
+                                        <a href={`https://wa.me/54${service.contact.replace(/\s/g, "")}`} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-success btn-icon">
+                                          <i className="fab fa-whatsapp me-1"></i>
+                                        </a>
+                                      )}
+                                      {service.type === "phone" && (
+                                        <a href={`tel:${service.contact.replace(/\s/g, "")}`} className="btn btn-sm btn-primary btn-icon">
+                                          <i className="fas fa-phone me-1"></i>Llamar
+                                        </a>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    <div className="col-12 col-md-6 col-lg-3 px-lg-3">
+                      {specialServices.length > 0 && (
+                        <>
+                          <h6 className="text-primary fw-bold mb-3">
+                            <i className="fas fa-laptop me-2"></i>Servicios Online
+                          </h6>
+                          <div className="row g-3">
+                            {specialServices.map((service) => (
+                              <div key={service.id} className="col-12">
+                                <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                                  <div className="card-icon">
+                                    <i className={service.icon}></i>
+                                  </div>
+                                  <div className="flex-grow-1">
+                                    <h6 className="card-title mb-1">{service.title}</h6>
+                                    {service.subtitle && (
+                                      <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    <div className="col-12 col-md-6 col-lg-3 ps-lg-3">
+                      {otherLinks.length > 0 && (
+                        <>
+                          <h6 className="text-primary fw-bold mb-3">
+                            <i className="fas fa-briefcase me-2"></i>Otros Servicios
+                          </h6>
+                          <div className="row g-3">
+                            {otherLinks.map((service) => (
+                              <div key={service.id} className="col-12">
+                                <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                                  <div className="card-icon">
+                                    <i className={service.icon}></i>
+                                  </div>
+                                  <div className="flex-grow-1">
+                                    <h6 className="card-title mb-1">{service.title}</h6>
+                                    {service.subtitle && (
+                                      <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         {/* 3 Cards separadas lado a lado */}
+        <div className="row g-4 mt-5">
+          {/* Card 1: Contactos Directos */}
+          {contactsWithNumbers.length > 0 && (
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="card h-100">
+                <div className="card-header bg-primary text-white">
+                  <h5 className="mb-0">
+                    <i className="fas fa-phone me-2"></i>Contactos Directos
+                  </h5>
+                </div>
+                <div className="card-body">
+                  <div className="row g-3">
+                    {contactsWithNumbers.map((service) => (
+                      <div key={service.id} className="col-12">
+                        <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                          <div className="card-icon">
+                            <i className={service.icon}></i>
+                          </div>
+                          <div className="flex-grow-1">
+                            <h6 className="card-title mb-1">{service.title}</h6>
+                            <p className="card-contact mb-2 fw-bold text-primary">{service.contact}</p>
+                            <div>
+                              {service.type === "whatsapp" && (
+                                <a href={`https://wa.me/54${service.contact.replace(/\s/g, "")}`} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-success">
+                                  <i className="fab fa-whatsapp me-1"></i>
+                                </a>
+                              )}
+                              {service.type === "phone" && (
+                                <a href={`tel:${service.contact.replace(/\s/g, "")}`} className="btn btn-sm btn-primary">
+                                  <i className="fas fa-phone me-1"></i>Llamar
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Card 2: Servicios Online */}
+          {specialServices.length > 0 && (
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="card h-50">
+                <div className="card-header bg-primary text-white">
+                  <h5 className="mb-0">
+                    <i className="fas fa-laptop me-2"></i>Servicios Online
+                  </h5>
+                </div>
+                <div className="card-body">
+                  <div className="row g-3">
+                    {specialServices.map((service) => (
+                      <div key={service.id} className="col-12">
+                        <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                          <div className="card-icon">
+                            <i className={service.icon}></i>
+                          </div>
+                          <div className="flex-grow-1">
+                            <h6 className="card-title mb-1">{service.title}</h6>
+                            {service.subtitle && (
+                              <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Card 3: Otros Servicios */}
+          {otherLinks.length > 0 && (
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="card h-50">
+                <div className="card-header bg-primary text-white">
+                  <h5 className="mb-0">
+                    <i className="fas fa-briefcase me-2"></i>Otros Servicios
+                  </h5>
+                </div>
+                <div className="card-body">
+                  <div className="row g-3">
+                    {otherLinks.map((service) => (
+                      <div key={service.id} className="col-12">
+                        <div className="d-flex align-items-start gap-3 p-2 bg-light rounded">
+                          <div className="card-icon">
+                            <i className={service.icon}></i>
+                          </div>
+                          <div className="flex-grow-1">
+                            <h6 className="card-title mb-1">{service.title}</h6>
+                            {service.subtitle && (
+                              <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </main>
+  );
+}

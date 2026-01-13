@@ -38,7 +38,7 @@ export default async function AreasContent({ searchParams }) {
   return (
     <main className='py-5'>
       <div className="container-fluid">
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-6">
             <HeaderSection title="Entries" subtitle={subtitle} />
           </div>
@@ -51,7 +51,7 @@ export default async function AreasContent({ searchParams }) {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-2">
             <h5>Tramites | {limit} de {formalities.length}</h5>
             {/* lista de Tramites */}

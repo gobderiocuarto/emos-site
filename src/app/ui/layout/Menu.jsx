@@ -7,8 +7,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
-import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
+import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
+import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
 import SearchModal from "../commons/SearchModal";
 
 export default function Menu() {
@@ -42,6 +42,7 @@ export default function Menu() {
         data-read
       >
         <Container>
+          
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
             <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
@@ -65,28 +66,24 @@ export default function Menu() {
                 Noticias
               </Link>
               <Link
-                href="/tramites"
+                href=""
                 className={`nav-link ${
                   pathname === "/tramites" ? "active" : ""
                 }`}
                 onClick={handleLinkClick}
               >
-                Trámites
+                Biblioteca Ambiental
               </Link>
               <Link
-                href="/areas"
-                className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
+                href="/design"
+                className={`nav-link ${
+                  pathname === "/design" ? "active" : ""
+                }`}
                 onClick={handleLinkClick}
               >
-                Áreas
+                design
               </Link>
-              <Link
-                href="/mapas"
-                className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Mapas
-              </Link>
+              
               {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
                 Pagos y Deudas
               </Link> */}

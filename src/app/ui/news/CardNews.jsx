@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function CardNews({ post }) {
   return (
-    <div className="col-lg-6 col-xl-4 mb-4 ">
-      <div className="card">
+    <div className="col-12 col-sm-6 col-lg-4">
+      <div className="card h-100">
         <div className="card-img-top">
           <Link href={`/noticias/${post.slug}`} className="">
             {/* eslint-disable-next-line */}

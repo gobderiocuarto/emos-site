@@ -4,7 +4,7 @@ export default function CardCategories({ category }) {
   return (
     <Link
       className="text-decoration-none"
-      href={`/tramites?category=${category.slug}`}
+      href={`/tramites?category=${category.slug}&area=emos`}
     >
       <div className="card">
         <div className="row g-0">

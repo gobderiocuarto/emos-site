@@ -35,7 +35,7 @@ export default async function SeccionDetail({ params }) {
     <main className="entries" data-read>
       <div className="container">
         <span className="sr-only">Detalle de la Noticia</span>
-        <div className="row">
+        <div className="row g-4">
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} />
             <EntriesAreas
