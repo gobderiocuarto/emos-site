@@ -42,7 +42,6 @@ export default function Menu() {
         data-read
       >
         <Container>
-          
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
             <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
@@ -53,9 +52,6 @@ export default function Menu() {
           </Navbar.Toggle>
           <Navbar.Collapse id="toggle">
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Link href="/tramites" className="sr-only">
-                Menu Principal
-              </Link>
               <Link
                 href="/noticias"
                 className={`nav-link ${
@@ -76,14 +72,19 @@ export default function Menu() {
               </Link>
               <Link
                 href="/design"
-                className={`nav-link ${
-                  pathname === "/design" ? "active" : ""
-                }`}
+                className={`nav-link ${pathname === "/design" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
+                Institucional
+              </Link>
+              <Link
+                href="/design"
+                className={`nav-link ${pathname === "/design" ? "active" : ""}`}
                 onClick={handleLinkClick}
               >
                 design
               </Link>
-              
+
               {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
                 Pagos y Deudas
               </Link> */}

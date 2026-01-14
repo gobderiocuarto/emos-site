@@ -2,7 +2,6 @@ import RelatedNews from "@/app/ui/news/RelatedNews";
 import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
-import EntriesAreas from "@/app/ui/areas/EntriesAreas";
 import NotFound from "../../../../../commons/NotFound";
 
 export async function generateMetadata({ params }) {
@@ -38,16 +37,6 @@ export default async function SeccionDetail({ params }) {
         <div className="row g-4">
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} />
-            <EntriesAreas
-              type="program"
-              area={detailEntry.area}
-              title="Programas y Servicios"
-            />
-            <EntriesAreas
-              type="other"
-              area={detailEntry.area}
-              title="Otros Servicios"
-            />
           </div>
           <div className="col-md-4">
             <RelatedNews title="Noticias Relacionadas" />
