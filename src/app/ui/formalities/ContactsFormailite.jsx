@@ -89,136 +89,71 @@ export default function Design() {
   );
 
   return (
-    <main className="design design-page" data-read>
-      <div className="row services-container">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-header bg-primary text-white">
-                <h5 className="mb-0">Directorio Completo de Servicios</h5>
-              </div>
-              <div className="card-body p-0">
-                {/* Agrupación en 3 columnas: Contactos (más ancho) | Servicios Online | Otros Servicios */}
-                <div className="p-3">
-                  <div className="row">
-                   <div className="col-12 col-lg-5 pe-lg-4 border-lg-end">
-                    {contactsWithNumbers.length > 0 && (
-                      <>
-                        <h6 className="text-primary fw-bold mb-3">
-                          <i className="fas fa-phone-alt me-2"></i> Contactos Directos
-                        </h6>
+    <main className="design design-page">
+    <div className="container ">
+      <div className="col-12">
+        <div className="mb-4">
+          <div className="card border-2 ">
+            {/* Encabezado azul principal */}
+            <div className="card-header bg-primary text-white py-3">
+              <h5 className="mb-0 fw-bold text-uppercase" style={{ fontSize: '1.1rem' }}>
+                Contactos
+              </h5>
+            </div>
 
-                        <div className="d-flex flex-column gap-2">
-                          {contactsWithNumbers.map((service) => (
-                            <div key={service.id} className="contact-card p-3 rounded d-flex align-items-center justify-content-between" >
-                              
-                              {/* IZQUIERDA: Estética de Servicios Online */}
-                              <div className="d-flex align-items-center gap-3">
-                                <div 
-                                  className="d-flex align-items-center justify-content-center rounded" 
-                                  style={{ width: '64px', height: '64px', backgroundColor: '#e3f2fd', minWidth: '64px' }}
-                                >
-                                  <i className={`${service.icon} fs-4 text-dark`}></i>
-                                </div>
+            <div className="card-body ">
+              <div className="row g-4">
 
-                                <div>
-                                  <h6 className="mb-0 fw-bold text-dark text-uppercase" style={{ fontSize: '0.9rem', letterSpacing: '0.5px' }}>
-                                    {service.title}
-                                  </h6>
-                                  <p className="mb-0 text-muted text-uppercase" style={{ fontSize: '0.75rem' }}>
-                                    {service.contact}
-                                  </p>
-                                </div>
-                              </div>
+                {contactsWithNumbers.map((service) => (
+                  <div key={service.id} className="col-12 col-md-6 col-lg-4">
 
-                              {/* DERECHA: Botones de Acción */}
-                              <div className="ms-3">
-                                {service.type === "whatsapp" && (
-                                  <a
-                                    href={`https://wa.me/54${service.contact.replace(/\s/g, "")}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-success btn-sm d-flex align-items-center gap-1 px-2 py-1 rounded-pill shadow-sm"
-                                  >
-                                    <i className="fab fa-whatsapp"></i> <span>Whatsapp</span>
-                                  </a>
-                                )}
+                    <div className="d-flex align-items-center bg-gray rounded p-3  border-start border-4 border-primary h-100">
+                      
+                      {/* ICONO */}
+                      <div className="flex-shrink-0 bg-light rounded p-2 me-3 text-muted">
+                        <i className={`${service.icon} fs-5`}></i>
+                      </div>
 
-                                {service.type === "phone" && (
-                                  <a
-                                    href={` tel:${service.contact.replace(/\s/g, "")}`}
-                                    className="btn btn-primary btn-sm d-flex align-items-center gap-1 px-2 py-1 rounded-pill shadow-sm"
-                                  >
-                                    <i className="fas fa-phone-alt"></i> <span>Llamar</span>
-                                  </a>
-                                )}
-                              </div>
-
-                            </div>
-                          ))}
+                      {/* TEXTO */}
+                      <div className="flex-grow-1">
+                        <div className="fw-bold text-uppercase small text-dark">
+                          {service.title}
                         </div>
-                      </>
-                    )}
-                  </div>
+                        <div className="text-primary fw-bold">
+                          {service.contact}
+                        </div>
 
-                    <div className="col-12 col-md-6 col-lg-3 px-lg-3">
-                      {specialServices.length > 0 && (
-                        <>
-                          <h6 className="text-primary fw-bold mb-3">
-                            <i className="fas fa-laptop me-2"></i>Servicios Online
-                          </h6>
-                          <div className="row g-3">
-                            {specialServices.map((service) => (
-                              <div key={service.id} className="col-12">
-                                <div className="d-flex align-items-start gap-3 p-2  rounded">
-                                  <div className="card-icon">
-                                    <i className={service.icon}></i>
-                                  </div>
-                                  <div className="flex-grow-1">
-                                    <h6 className="card-title mb-1">{service.title}</h6>
-                                    {service.subtitle && (
-                                      <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </>
-                      )}
+                        {/* BOTÓN */}
+                        <div className="mt-2">
+                          {service.type === "whatsapp" ? (
+                            <a
+                              href={`https://wa.me/54${service.contact.replace(/\s/g, "")}`}
+                              className="btn btn-sm btn-success text-white px-3"
+                            >
+                              <i className="fab fa-whatsapp me-1"></i> WhatsApp
+                            </a>
+                          ) : (
+                            <a
+                              href={`tel:${service.contact.replace(/\s/g, "")}`}
+                              className="btn btn-sm btn-primary text-white px-3"
+                            >
+                              <i className="fas fa-phone me-1"></i> Llamar
+                            </a>
+                          )}
+                        </div>
+                      </div>
+
                     </div>
 
-                    <div className="col-12 col-md-6 col-lg-3 ps-lg-3">
-                      {otherLinks.length > 0 && (
-                        <>
-                          <h6 className="text-primary fw-bold mb-3">
-                            <i className="fas fa-briefcase me-2"></i>Otros Servicios
-                          </h6>
-                          <div className="row g-3">
-                            {otherLinks.map((service) => (
-                              <div key={service.id} className="col-12">
-                                <div className="d-flex align-items-start gap-3 p-2  rounded">
-                                  <div className="card-icon">
-                                    <i className={service.icon}></i>
-                                  </div>
-                                  <div className="flex-grow-1">
-                                    <h6 className="card-title mb-1">{service.title}</h6>
-                                    {service.subtitle && (
-                                      <p className="card-subtitle text-muted mb-0">{service.subtitle}</p>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </div>
                   </div>
-                </div>
+                ))}
+
               </div>
             </div>
           </div>
-        </div>
-    </main>
+          </div>
+      </div>
+    </div>
+</main>
   );
 }
