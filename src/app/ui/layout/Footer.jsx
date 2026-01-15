@@ -41,19 +41,10 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li>
                 <Link href="/tramites" className="footer-link">
-                  Trámites
+                  Habilitacion De Obras
                 </Link>
               </li>
-              <li>
-                <Link href="/areas" className="footer-link">
-                  Áreas
-                </Link>
-              </li>
-              <li>
-                <Link href="/mapas" className="footer-link">
-                  Mapas
-                </Link>
-              </li>
+
               <li>
                 <Link href="/noticias" className="footer-link">
                   Noticias

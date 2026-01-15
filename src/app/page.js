@@ -23,7 +23,7 @@ export default async function Home() {
 
       <div className="container mb-4">
         <HeaderSection title="Últimas Noticias" />
-        <ListNews limit={3} />
+        <ListNews limit={""} area={"emos"} />
 
         <Link href="/noticias" className="btn btn-dark mt-3">
           Ver más noticias
