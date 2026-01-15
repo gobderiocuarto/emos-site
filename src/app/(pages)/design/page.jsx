@@ -305,10 +305,10 @@ export default function Design() {
         </div>
 
          {/* 3 Cards separadas lado a lado */}
-        <div className="row g-4 mt-5">
+        <div className="row">
           {/* Card 1: Contactos Directos */}
           {contactsWithNumbers.length > 0 && (
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className="col-6 col-md-6 col-lg-">
               <div className="card h-100">
                 <div className="card-header bg-primary text-white">
                   <h5 className="mb-0">

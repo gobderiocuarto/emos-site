@@ -12,8 +12,8 @@ export default function Hero() {
       <div className="hero-search">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-11 col-md-8">
-              <h1 className='hero-title'>Bienvenido a Río Cuarto</h1>
+            <div className="col-11 col-md-8 ">
+              <h1 className='hero-title text-center'>Bienvenido a Emos</h1>
               <Suspense>
                 <SearchForm />
               </Suspense>
