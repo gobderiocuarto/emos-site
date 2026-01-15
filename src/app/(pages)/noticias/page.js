@@ -7,8 +7,8 @@ import { fetchAreaBySlug, fetchAreas } from "@/app/lib/DataAreas";
 import { fetchPosts } from "@/app/lib/DataNews";
 
 export const metadata = {
-  title: 'Noticias',
-  description: 'Noticias del Gobierno de Río Cuarto',
+  title: "Noticias",
+  description: "Noticias del Gobierno de Río Cuarto",
 };
 
 export default async function News({ searchParams }) {
@@ -23,24 +23,16 @@ export default async function News({ searchParams }) {
     areaSlug ? fetchAreaBySlug(areaSlug) : Promise.resolve(null),
   ]);
 
-  const subtitle = areaName ? `${areaName.name} (${posts.total})` : `general (${posts.total})`;
+  const subtitle = areaName
+    ? `${areaName.name} (${posts.total})`
+    : `general (${posts.total})`;
 
   return (
     <main className="news news-page" data-read>
-
       <div className="container">
         <div className="row">
-          <div className="col-md-6"><HeaderSection title="Noticias" subtitle={subtitle} /></div>
           <div className="col-md-6">
-            <div className="news-form">
-              <FormNews
-                options={areas}
-                paramName="area"
-                placeholder="Todas las noticias"
-                posts={posts}
-                subtitle={subtitle}
-              />
-            </div>
+            <HeaderSection title="Noticias" subtitle={subtitle} />
           </div>
         </div>
         <div className="row justify-content-center">
@@ -56,7 +48,7 @@ export default async function News({ searchParams }) {
               </div>
             ) : (
               <>
-                <ListNews page={page} limit={limit} area={areaSlug} />
+                <ListNews page={page} limit={limit} area={"emos"} />
                 <Pagination
                   currentPage={posts.current_page}
                   totalNews={posts.total}
@@ -67,6 +59,6 @@ export default async function News({ searchParams }) {
           </Suspense>
         </div>
       </div>
-    </main >
+    </main>
   );
 }
