@@ -2,7 +2,7 @@ import RelatedNews from "@/app/ui/news/RelatedNews";
 import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
-import NotFound from "../../../../../commons/NotFound";
+import NotFound from "@/app/ui/commons/NotFound";
 
 export async function generateMetadata({ params }) {
   const { slug } = params;

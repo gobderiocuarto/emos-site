@@ -24,6 +24,30 @@ const banners = [
     url: "https://www.youtube.com/watch?v=-MLpfVo0wR0", // ejemplo de ruta interna
     target: "", // ruta interna: usa Link
   },
+  {
+    title: "EMOS VA AL COLE",
+    subtitle: "Atención al vecino",
+    icon: "fa-phone fa-2xl",
+    color: "bg-primary text-white",
+    url: "/seccion/0800-444-5454-sistema-unico-de-atencion-al-vecino-suav",
+    target: "",
+  },
+  {
+    title: "Pagos Online",
+    subtitle: "Oficina Virtual",
+    icon: "fa-dollar-sign fa-2xl",
+    color: "bg-primary text-white",
+    url: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
+    target: "",
+  },
+  {
+    title: "Biblioteca Ambiental",
+    subtitle: "Informacion y Recursos",
+    icon: "fa-book fa-2xl",
+    color: "bg-primary text-white",
+    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
+    target: "_blank",
+  },
 ];
 
 export default function BannerList() {
