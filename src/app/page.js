@@ -6,7 +6,7 @@ import Link from "next/link";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import AreaDetail from "./ui/formality/AreaDetail";
 import ListFormalitiesBySlug from "./ui/formalities/ListFormalitiesBySlug";
-import ContactsFormailite from "./ui/contacts/ContactsFormailite";
+import ContactsFormailite from "./ui/formalities/ContactsFormailite";
 import BannerList from "./ui/home/BannerList";
 
 export default async function Home() {
