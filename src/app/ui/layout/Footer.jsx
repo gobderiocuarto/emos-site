@@ -40,7 +40,7 @@ export default function Footer() {
             <h5 className="footer-title">Enlaces Útiles</h5>
             <ul className="list-unstyled">
               <li>
-                <Link href="/tramites" className="footer-link">
+                <Link href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0" className="footer-link">
                   Habilitacion De Obras
                 </Link>
               </li>
@@ -57,7 +57,7 @@ export default function Footer() {
             <h5 className="footer-title">Seguinos en redes</h5>
             <div className="social-icons mb-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link me-3"
@@ -66,7 +66,7 @@ export default function Footer() {
                 <span className="sr-only">Facebook</span>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/emos_riocuarto/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link me-3"
@@ -75,7 +75,7 @@ export default function Footer() {
                 <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@emosriocuarto1164"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link"

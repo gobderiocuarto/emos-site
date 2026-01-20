@@ -71,8 +71,8 @@ export default function Menu() {
                 Biblioteca Ambiental
               </Link>
               <Link
-                href="/design"
-                className={`nav-link ${pathname === "/design" ? "active" : ""}`}
+                href="/Institucional"
+                className={`nav-link ${pathname === "/Institucional" ? "active" : ""}`}
                 onClick={handleLinkClick}
               >
                 Institucional
