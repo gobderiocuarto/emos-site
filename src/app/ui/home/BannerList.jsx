@@ -45,7 +45,7 @@ const banners = [
     subtitle: "Informacion y Recursos",
     icon: "fa-book fa-2xl",
     color: "bg-primary text-white",
-    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
+    url: "/biblioteca",
     target: "_blank",
   },
 ];
