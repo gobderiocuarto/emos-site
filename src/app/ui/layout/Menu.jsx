@@ -62,7 +62,7 @@ export default function Menu() {
                 Noticias
               </Link>
               <Link
-                href=""
+                href="/biblioteca"
                 className={`nav-link ${
                   pathname === "/tramites" ? "active" : ""
                 }`}
