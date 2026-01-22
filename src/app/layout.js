@@ -34,19 +34,20 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
 
   openGraph: {
-    title: "Gobierno de Río Cuarto",
+    title: "Gobierno ",
     description:
-      "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
+      "Portal oficial del Emos  Río Cuarto. Encuentra noticias, trámites, programas y más.",
     images: ["images/og-image.png"],
   },
   title: {
-    default: "Gobierno de Río Cuarto | Portal Oficial",
-    template: "%s | Gobierno de Río Cuarto", // %s se reemplazará por el título de cada página
+    default: "Emos Río Cuarto | Portal Oficial",
+    template: "%s | Emos Río Cuarto", // %s se reemplazará por el título de cada página
   },
   description:
-    "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
+    "Portal oficial del Emos Río Cuarto. Encuentra noticias, trámites, programas y más.",
   keywords: [
     "gobierno",
+    "emos",
     "municipalidad",
     "trámites",
     "noticias",

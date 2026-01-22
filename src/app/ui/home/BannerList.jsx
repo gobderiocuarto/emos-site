@@ -4,32 +4,11 @@ import React from "react";
 
 const banners = [
   {
-    title: "Recorrido del Agua 360",
-    subtitle: "Recorrido del agua",
-    image: "/images/banners/recorrido-agua-360.png",
-    url: "https://www.youtube.com/watch?v=ZQ36qu_zNig",
-    target: "_blank", // abrir en nueva pestaña (YouTube)
-  },
-  {
-    title: "Burbuja TV",
-    subtitle: "Semana del Agua",
-    image: "/images/banners/burbuja-tv.png",
-    url: "https://www.youtube.com/watch?v=ap5NmITfYcA&list=PLL0_FaXW1FvEHt1kD5yjQRFDBrl4OCKK9",
-    target: "_blank", // abrir en nueva pestaña (YouTube)
-  },
-  {
-    title: "Banner Large",
-    subtitle: "",
-    image: "/images/banners/recorrido-agua.png",
-    url: "https://www.youtube.com/watch?v=-MLpfVo0wR0", // ejemplo de ruta interna
-    target: "", // ruta interna: usa Link
-  },
-  {
     title: "EMOS VA AL COLE",
     subtitle: "Atención al vecino",
     icon: "fa-phone fa-2xl",
     color: "bg-primary text-white",
-    url: "/seccion/0800-444-5454-sistema-unico-de-atencion-al-vecino-suav",
+    url: "/seccion/la-emos-va-al-cole",
     target: "",
   },
   {

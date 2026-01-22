@@ -17,8 +17,8 @@ export default function CardContact({ service }) {
         <div
           className="icon-block"
           style={{
-            backgroundColor: isWhatsapp ? "#25D366" : "#4da3ff",
-            color: "#fff"
+            backgroundColor: isWhatsapp ? "#00C96B" : "#009de0",
+            color: "#fff",
           }}
         >
           <i className={isWhatsapp ? "fab fa-whatsapp" : "fas fa-phone"} />
