@@ -1,62 +1,98 @@
-.buttons  {
-  $card-height: 110px;
+// Variables de color
+$primary-blue: #0096d9;
+$text-dark: #212529;
+$text-muted: #212529;
+$white: #fff;
 
-  a:hover {
-    .card {
-      border-color: rgba($gray-900, 0.5);
+.contact-card {
+  background: $white;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  height: 100px;
+  max-width: 400px;
+  display: flex;
+  align-items: stretch; 
+  overflow: hidden;    
+  text-decoration: none !important;
+  cursor: pointer;
+  
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    
+    .icon-block {
+      background-color: darken($primary-blue, 5%);
     }
   }
 
-  .card {
-    //border-radius: $border-radius;
-    border-color: rgba($gray-900, 0.2);
-
-    &-img {
-      width: 100%;
-      min-height: $card-height;
-      border-radius: $border-radius 0 0 $border-radius;
-
-      img {
-        width: 100%;
-        height: $card-height;
-        object-fit: cover;
-        border-radius: $border-radius 0 0 $border-radius;
-      }
-    }
-
-    &-icon {
-      background-color: $gray-200;
-      width: 100%;
-      min-height: $card-height;
-      border-radius: $border-radius 0 0 $border-radius;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      svg {
-        width: 50%;
-        height: 50%;
-        //color: white;
-      }
-    }
-
-    &-body {
-      //background-color: $gray-100;
-      display: flex;
-      align-items: center;
-      min-height: $card-height;
-      // padding: 16px;
-      //border-radius: 0 $border-radius $border-radius 0;
-    }
-
-    &-title {
-      margin-bottom: 0;
-      font-size: 1.2rem;
-
-      
-    }
+  &:active {
+    transform: translateY(-1px);
   }
 }
+
+// Bloque del Icono - Aquí controlas el tamaño del icono blanco
+.icon-block {
+  width: 100px; 
+  background-color: #00C96B;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+  font-size: 40px;
+ 
+}
+
+// Contenedor de información
+.contact-info {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .contact-title {
+    font-size: 16px; // Ajustado a 14px para que sea proporcional al alto de 100px
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-muted;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .contact-number {
+    font-size: 21px;
+    font-weight: 700;
+    color: $primary-blue;
+    line-height: 1.2;
+  }
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #495057;
+  letter-spacing: 1px;
+}
+// .contact-card--phone {
+//   background-color: #e7f3ff;
+// }
+
+// /* Icono WhatsApp */
+// .icon-block--whatsapp {
+//   background-color: #25d366;
+//   color: #fff;
+// }
+
+// /* Icono Teléfono */
+// .icon-block--phone {
+//   background-color: #4da3ff;
+//   color: #fff;
+// }
+
+
 
 // .card {
 //   border-radius: $border-radius;

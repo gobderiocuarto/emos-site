@@ -40,7 +40,7 @@ export default function Footer() {
             <h5 className="footer-title">Enlaces Útiles</h5>
             <ul className="list-unstyled">
               <li>
-                <Link href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0" className="footer-link">
+                <Link href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0" className="footer-link"  target="_blank">
                   Habilitacion De Obras
                 </Link>
               </li>
