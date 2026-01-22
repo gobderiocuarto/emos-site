@@ -21,10 +21,10 @@ export default function Footer() {
                 <i className="fa fa-map-marker-alt fa-fw me-2"></i>
                 <a
                   target="_blank"
-                  href="https://www.google.com/maps/place/Municipalidad+de+R%C3%ADo+Cuarto/@-33.1232494,-64.3492356,17z/data=!3m1!4b1!4m6!3m5!1s0x95d2000dc85abea3:0x70b3a3854f9eff0b!8m2!3d-33.1232539!4d-64.3466607!16s%2Fg%2F1hg4wc6_0?entry=ttu&g_ep=EgoyMDI1MTAwNC4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/place/EMOS.+Oficina+Administrativa/@-33.1217949,-64.3490933,17z/data=!3m1!4b1!4m6!3m5!1s0x95d201b4eba336f1:0xc503973a059069cd!8m2!3d-33.1217976!4d-64.3475622!16s%2Fg%2F11fhwkw44y?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoASAFQAw%3D%3D"
                   className="footer-text"
                 >
-                  Pje. de la Concepción 650
+                  Baigorria 26, Río Cuarto, Córdoba
                 </a>
               </li>
               <li>
