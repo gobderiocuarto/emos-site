@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 
 export default function BannerCard({ banner }) {
@@ -7,7 +6,7 @@ export default function BannerCard({ banner }) {
   // Si hay imagen, mostrarla (ruta desde /public)
   if (image) {
     return (
-      <div className="card mb-3 banner-card">
+      <div className="card mb-3 banner-card" style={{ borderRadius: "12px", overflow: "hidden" }}>
         {/*eslint-disable-next-line @next/next/no-img-element*/}
         <img src={image} alt={title} className="img-fluid w-100" />
       </div>

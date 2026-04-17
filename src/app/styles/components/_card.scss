@@ -4,6 +4,54 @@ $text-dark: #212529;
 $text-muted: #212529;
 $white: #fff;
 
+// Tira de contactos compacta
+.contacts-strip {
+  padding: 14px 0;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+
+  &__label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #868e96;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  i {
+    font-size: 14px;
+  }
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+}
+
+// Estilos legacy (mantenidos por si se usan en otro lugar)
 .contact-card {
   background: $white;
   border-radius: 3px;

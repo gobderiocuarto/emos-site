@@ -5,27 +5,21 @@ import React from "react";
 const banners = [
   {
     title: "EMOS VA AL COLE",
-    subtitle: "Atención al vecino",
-    icon: "fa-phone fa-2xl",
-    color: "bg-primary text-white",
+    image: "/images/banners/EMOS VA AL COLE.png",
     url: "/seccion/la-emos-va-al-cole",
-    target: "",
+    external: false,
   },
   {
-    title: "Pagos Online",
-    subtitle: "Oficina Virtual",
-    icon: "fa-dollar-sign fa-2xl",
-    color: "bg-primary text-white",
+    title: "Pagos y Deudas",
+    image: "/images/banners/PAGOS Y  DEUDAS.png",
     url: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
-    target: "",
+    external: true,
   },
   {
     title: "Biblioteca Ambiental",
-    subtitle: "Informacion y Recursos",
-    icon: "fa-book fa-2xl",
-    color: "bg-primary text-white",
+    image: "/images/banners/BIBLIOTECA.png",
     url: "/biblioteca",
-    target: "_blank",
+    external: false,
   },
 ];
 
@@ -34,26 +28,21 @@ export default function BannerList() {
     <section className="banners" data-read>
       <div className="container">
         <div className="row">
-          {banners.map((banner) => {
-            const isExternal = /^https?:\/\//.test(banner.url);
-            return (
+          {banners.map((banner) =>
+            banner.external ? (
               <div key={banner.title} className="col-md-4">
-                {isExternal ? (
-                  <a
-                    href={banner.url}
-                    target={banner.target || "_blank"}
-                    rel="noopener noreferrer"
-                  >
-                    <BannerCard banner={banner} />
-                  </a>
-                ) : (
-                  <Link href={banner.url}>
-                    <BannerCard banner={banner} />
-                  </Link>
-                )}
+                <a href={banner.url} target="_blank" rel="noopener noreferrer">
+                  <BannerCard banner={banner} />
+                </a>
               </div>
-            );
-          })}
+            ) : (
+              <div key={banner.title} className="col-md-4">
+                <Link href={banner.url}>
+                  <BannerCard banner={banner} />
+                </Link>
+              </div>
+            )
+          )}
         </div>
       </div>
     </section>
