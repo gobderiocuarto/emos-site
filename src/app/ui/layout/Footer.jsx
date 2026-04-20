@@ -6,92 +6,139 @@ export default function Footer() {
 
   return (
     <footer className="footer-app" data-read>
-      <div className="container py-4 py-md-5">
-        <div className="row g-4">
-          <div className="col-lg-4 col-md-6">
-            <h5 className="footer-title">Contacto Rápido</h5>
-            <ul className="list-unstyled">
-              <li>
+      <div className="container">
+        <div className="row gy-4">
+
+          {/* 1. Logo */}
+          <div className="col-lg-3 col-md-12 text-center text-lg-start">
+            <div className="mb-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logos/EMOS_Logo_Horizontal_blanco.webp"
+                alt="EMOS Río Cuarto"
+                className="logo-footer"
+              />
+            </div>
+            <p className="copyright-text mb-0">
+              Empresa Municipal de Obras y Servicios.
+              <br />
+              Río Cuarto · Córdoba.
+            </p>
+          </div>
+
+          {/* 2. Contacto */}
+          <div className="col-lg-3 col-md-6 text-center text-lg-start">
+            <h6 className="text-white mb-3">Contacto Rápido</h6>
+            <ul className="list-unstyled mb-0">
+              <li className="mb-2">
                 <i className="fa fa-phone fa-fw me-2"></i>
-                <a href="tel:0800-444-5427" className="footer-link">
+                <a href="tel:08004445454" className="footer-link">
                   0800-444-5454
                 </a>
               </li>
-              <li>
+              <li className="mb-2">
+                <i className="fab fa-whatsapp fa-fw me-2"></i>
+                <a
+                  href="https://wa.me/543584111395"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  358 411 1395 (Reclamos)
+                </a>
+              </li>
+              <li className="mb-2">
                 <i className="fa fa-map-marker-alt fa-fw me-2"></i>
                 <a
                   target="_blank"
-                  href="https://www.google.com/maps/place/EMOS.+Oficina+Administrativa/@-33.1217949,-64.3490933,17z/data=!3m1!4b1!4m6!3m5!1s0x95d201b4eba336f1:0xc503973a059069cd!8m2!3d-33.1217976!4d-64.3475622!16s%2Fg%2F11fhwkw44y?entry=ttu&g_ep=EgoyMDI2MDExOS4wIKXMDSoASAFQAw%3D%3D"
-                  className="footer-text"
+                  rel="noopener noreferrer"
+                  href="https://www.google.com/maps/place/EMOS.+Oficina+Administrativa/@-33.1217949,-64.3490933,17z"
+                  className="footer-link"
                 >
-                  Baigorria 26, Río Cuarto, Córdoba
+                  Baigorria 26, Río Cuarto
                 </a>
               </li>
-              <li>
+              <li className="mb-2 d-flex align-items-center justify-content-center justify-content-lg-start">
                 <i className="fa fa-clock fa-fw me-2"></i>
-                <span className="footer-text">
-                  Lunes a Viernes de 7:00 a 13:00 hs.
-                </span>
+                <span className="footer-link">Lun a Vie de 7:00 a 13:00 hs.</span>
               </li>
             </ul>
           </div>
 
-          <div className="col-lg-4 col-md-6">
-            <h5 className="footer-title">Enlaces Útiles</h5>
-            <ul className="list-unstyled">
-              <li>
-                <Link href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0" className="footer-link"  target="_blank">
-                  Habilitacion De Obras
-                </Link>
+          {/* 3. Enlaces */}
+          <div className="col-lg-3 col-md-6 text-center text-lg-start">
+            <h6 className="text-white mb-3">Enlaces Útiles</h6>
+            <ul className="list-unstyled mb-0">
+              <li className="mb-2">
+                <Link href="/tramites" className="footer-link">Trámites</Link>
               </li>
-
-              <li>
-                <Link href="/noticias" className="footer-link">
-                  Noticias
-                </Link>
+              <li className="mb-2">
+                <a
+                  href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  Habilitación de Obras
+                </a>
+              </li>
+              <li className="mb-2">
+                <Link href="/noticias" className="footer-link">Noticias</Link>
+              </li>
+              <li className="mb-2">
+                <Link href="/biblioteca" className="footer-link">Biblioteca Ambiental</Link>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  Oficina Virtual
+                </a>
               </li>
             </ul>
           </div>
 
-          <div className="col-lg-4 col-md-12">
-            <h5 className="footer-title">Seguinos en redes</h5>
-            <div className="social-icons mb-3">
+          {/* 4. Redes */}
+          <div className="col-lg-3 col-md-12 text-center text-lg-start">
+            <h6 className="text-white mb-3">Seguinos</h6>
+            <p className="small-text mb-3">
+              Enterate de todas las novedades en nuestras redes.
+            </p>
+            <div className="d-flex gap-3 justify-content-center justify-content-lg-start social-icons">
               <a
-                href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/#"
+                href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link me-3"
               >
-                <i className={`fa-brands fa-fw fa-facebook`}></i>
-                <span className="sr-only">Facebook</span>
+                <i className="fa-brands fa-facebook-f"></i>
               </a>
               <a
                 href="https://www.instagram.com/emos_riocuarto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link me-3"
               >
-                <i className={`fa-brands fa-1x fa-instagram`}></i>
-                <span className="sr-only">Instagram</span>
+                <i className="fa-brands fa-instagram"></i>
               </a>
               <a
                 href="https://www.youtube.com/@emosriocuarto1164"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
               >
-                <i className={`fa-brands fa-fw fa-youtube`}></i>
-                <span className="sr-only">Youtube</span>
+                <i className="fa-brands fa-youtube"></i>
               </a>
             </div>
           </div>
         </div>
 
+        {/* Copyright */}
         <div className="row mt-4 pt-3 footer-copyright-row">
           <div className="col text-center text-md-start">
-            <p className="footer-copyright mb-0">
-              &copy; {currentYear} Gobierno de Río Cuarto. Desarrollado por la
-              Subsecretaria de Innovación.
+            <p className="copyright-text mb-0">
+              &copy; {currentYear} EMOS · Empresa Municipal de Obras y Servicios.
+              Desarrollado por la Subsecretaría de Innovación.
             </p>
           </div>
         </div>

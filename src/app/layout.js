@@ -64,7 +64,9 @@ export default function RootLayout({ children }) {
 
       <body className={`${inter.variable}`}>
         <Header />
-        {children}
+        <div className="layout-content">
+          {children}
+        </div>
         <Footer />
         {/* <Chat /> */}
         <Suspense> </Suspense>

@@ -1,44 +1,98 @@
 .footer-app {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #b0b0b0;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-  margin-top: 60px;
-  position: absolute;
-  bottom: 0;
+  border-top: 3px solid $primary;
 
-  .footer-title {
-    font-size: 1.2rem;
+  // Títulos con línea celeste
+  h6 {
+    color: #fff;
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: $white;
     text-transform: uppercase;
-  }
-
-  .list-unstyled {
-    padding-left: 0;
-  }
-
-  .footer-link,
-  .footer-text {
     font-size: 0.95rem;
-    color: #cccccc;
-    text-decoration: none;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
 
-    &:hover {
-      color: $primary;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 3px;
+      background-color: $primary;
+      bottom: -10px;
+      left: 0;
     }
   }
 
+  .logo-footer {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .small-text,
+  .copyright-text {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+
+    &:hover {
+      color: $primary;
+      padding-left: 5px;
+    }
+  }
+
+  // Iconos de contacto
+  .fa,
+  .fas,
+  .far,
+  .fab,
+  .fa-brands {
+    color: $primary;
+    width: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
   .social-icons {
-    .social-link {
-      color: #ffffff;
-      opacity: 0.8;
-      transition: opacity 0.2s ease, color 0.2s ease;
+    margin-top: 0.5rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      .fa-brands,
+      .fab {
+        color: #fff;
+        width: auto;
+        font-size: 1rem;
+      }
 
       &:hover {
-        opacity: 1;
-        color: $primary;
+        background-color: $primary;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba($primary, 0.3);
       }
     }
   }
@@ -48,9 +102,24 @@
     margin-top: 1rem !important;
     padding-top: 1rem !important;
   }
+}
 
-  .footer-copyright {
-    font-size: 0.85rem;
-    color: #999999;
+@media (max-width: 991px) {
+  .footer-app {
+    text-align: center;
+
+    h6::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .col-md-6,
+    .col-md-12 {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-link:hover {
+      padding-left: 0;
+    }
   }
 }

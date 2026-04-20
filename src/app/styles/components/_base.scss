@@ -4,10 +4,13 @@ html {
 }
 
 body {
-  //background-color: rgba(pink, 0.8);
-  // Teniamos esto por alguna razon, no lo borro por las dudas
-  // padding-bottom: 100px;
-  margin-bottom: 400px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .layout-content {
+    flex: 1;
+  }
 
   .sr-only {
     position: absolute;
@@ -33,8 +36,3 @@ body {
 
 
 
-@media (max-width:767px) {
-  body {
-    margin-bottom: 600px;
-  }
-}
