@@ -27,7 +27,11 @@ export default async function Formalities({ searchParams }) {
     <Suspense>
       <main className="formalities formalities-page" data-read>
         <div className="container">
-          <HeaderSection title="Tramites" subtitle={subtitle} />
+          <HeaderSection
+            title="Trámites"
+            subtitle={subtitle}
+            bgImage="/images/calidad_del_agua_potable_analisis_de_agua.webp"
+          />
           <div className="row justify-content-center">
             <Suspense fallback={<div>Cargando trámites...</div>}>
               <FormalitiesFilters />

@@ -16,12 +16,11 @@ export default async function Home() {
     <main>
       <Hero />
       <BannerList />
-      
-        <ContactsFormailite />
+
+      <ContactsFormailite />
       <ListFormalitiesBySlug area={area} />
 
       <div className="container mb-4">
-        <HeaderSection title="Últimas Noticias" />
         <ListNews limit={""} area={"emos"} />
 
         <Link href="/noticias" className="btn btn-dark mt-3">

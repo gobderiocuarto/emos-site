@@ -6,29 +6,80 @@ $white: #fff;
 
 // Tira de contactos compacta
 .contacts-strip {
-  padding: 14px 0;
-  background: #f8f9fa;
-  border-top: 1px solid #e9ecef;
-  border-bottom: 1px solid #e9ecef;
+  padding: 36px 0;
 
   &__label {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #868e96;
-    margin-bottom: 8px;
+    color: $gray-600;
+    margin-bottom: 14px;
     text-align: center;
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
   }
 }
 
+// Mini-tarjeta de contacto
+.contact-card-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e0e6ea;
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  &__icon {
+    font-size: 1.3rem;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #f3f6f9;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  &__title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #212529;
+  }
+
+  &__number {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #56595a;
+  }
+}
+
+// legacy — mantenido por si se usa en otro lugar
 .contact-chip {
   display: inline-flex;
   align-items: center;
@@ -39,7 +90,9 @@ $white: #fff;
   text-decoration: none !important;
   font-size: 13px;
   font-weight: 600;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 
   i {
     font-size: 14px;
@@ -59,16 +112,15 @@ $white: #fff;
   height: 100px;
   max-width: 400px;
   display: flex;
-  align-items: stretch; 
-  overflow: hidden;    
+  align-items: stretch;
+  overflow: hidden;
   text-decoration: none !important;
   cursor: pointer;
-  
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    
+
     .icon-block {
       background-color: darken($primary-blue, 5%);
     }
@@ -81,8 +133,8 @@ $white: #fff;
 
 // Bloque del Icono - Aquí controlas el tamaño del icono blanco
 .icon-block {
-  width: 100px; 
-  background-color: #00C96B;
+  width: 100px;
+  background-color: #00c96b;
   color: $white;
   display: flex;
   align-items: center;
@@ -90,7 +142,6 @@ $white: #fff;
   flex-shrink: 0;
   transition: background-color 0.3s ease;
   font-size: 40px;
- 
 }
 
 // Contenedor de información
@@ -139,8 +190,6 @@ $white: #fff;
 //   background-color: #4da3ff;
 //   color: #fff;
 // }
-
-
 
 // .card {
 //   border-radius: $border-radius;

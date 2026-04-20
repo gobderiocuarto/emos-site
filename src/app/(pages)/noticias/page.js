@@ -32,7 +32,11 @@ export default async function News({ searchParams }) {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <HeaderSection title="Noticias" subtitle={subtitle} />
+            <HeaderSection
+              title="Noticias"
+              subtitle={subtitle}
+              bgImage="/images/parquesarmiento.webp"
+            />
           </div>
         </div>
         <div className="row justify-content-center">

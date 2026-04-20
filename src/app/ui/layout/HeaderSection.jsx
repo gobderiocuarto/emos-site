@@ -1,26 +1,60 @@
 import ListIcons from "../icons/ListIcons";
 
-const LIST_OF_ICONS = [
+const DEFAULT_ICONS = [
   { name: "circles", color: "lightblue", size: "30" },
   { name: "squares", color: "green", size: "30" },
   { name: "waves", color: "lightblue", size: "30" },
 ];
 
+const WHITE_ICONS = [
+  { name: "circles", color: "white", size: "30" },
+  { name: "squares", color: "white", size: "30" },
+  { name: "waves", color: "white", size: "30" },
+];
+
 export default function HeaderSection({
   title = "Titulo de la Seccion",
   subtitle = "",
+  description = "",
   border = false,
+  bgImage = null,
+  bgPosition = "center",
 }) {
+  const isHumanized = !!bgImage;
+  const icons = isHumanized ? WHITE_ICONS : DEFAULT_ICONS;
+
   return (
-    <div className={`header ${border ? "header-border" : ""}`}>
-      <div className="header-icons">
-        <ListIcons icons={LIST_OF_ICONS}></ListIcons>
-      </div>
-      <div className="header-text">
-        <h2>{title}</h2>
-        {subtitle ? <p>{subtitle}</p> : ""}
-      </div>
-      <div className="header-form"></div>
+    <div
+      className={`header ${border ? "header-border" : ""} ${isHumanized ? "header-humanized" : ""}`}
+      style={isHumanized ? { backgroundImage: `url(${bgImage})`, backgroundPosition: bgPosition } : {}}
+    >
+      {isHumanized && <div className="header-overlay" />}
+
+      {isHumanized ? (
+        <div className="header-content">
+          <div className="header-icons">
+            <ListIcons icons={icons} />
+          </div>
+          <div className="header-text">
+            <h2>{title}</h2>
+            {subtitle && <p>{subtitle}</p>}
+            {description && <div className="header-description">{description}</div>}
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="header-icons">
+            <ListIcons icons={icons} />
+          </div>
+          <div className="header-text">
+            <h2>{title}</h2>
+            {subtitle && <p>{subtitle}</p>}
+            {description && <div className="header-description">{description}</div>}
+          </div>
+        </>
+      )}
+
+      <div className="header-form" />
     </div>
   );
 }
