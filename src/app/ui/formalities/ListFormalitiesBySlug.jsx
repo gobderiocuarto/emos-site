@@ -21,15 +21,15 @@ export default async function ListFormalitiesBySlug({ area }) {
           <p>No hay trámites para esta área.</p>
         ):(
           <>
-            <div className="row formalities-list">
+            <div className="row g-3 formalities-list mt-2">
               {formalities.map((formality) => (
-                <div className="col-12 col-lg-4" key={formality.id}>
+                <div className="col-12 col-md-6 col-lg-4 d-flex" key={formality.id}>
                   <FormalitiesCard formality={formality} />
                 </div>
               ))}
             </div>
-            {allFormalities.length > 3 && (
-              <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white">Ver más trámites</Link>
+            {allFormalities.length > 6 && (
+              <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white mt-4">Ver más trámites</Link>
             )}
           </>
         )}
