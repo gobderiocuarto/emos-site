@@ -1,20 +1,27 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { fetchEntries } from "@/app/lib/DataEntries";
-import CardOther from "./CardOther";
+import CardBiblioteca from "./CardBiblioteca";
 
 export default async function BannerBibliotecaList() {
-  // trae entries tipo "other" filtradas por area "emos"
-  const entries = await fetchEntries("other", "emos"); // si fetchEntries devuelve { data: [...] } usa .data
+  const entries = await fetchEntries("other", "emos");
+
+  if (!entries || entries.length === 0) {
+    return (
+      <section className="biblioteca-list">
+        <div className="container">
+          <p className="text-muted">No hay entradas disponibles.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section className="banners" data-read>
+    <section className="biblioteca-list" data-read>
       <div className="container">
-        <div className="row">
-          <Suspense fallback={<div>Cargando...</div>}>
-            {(entries || []).map((entry) => (
-              <CardOther key={entry.id} item={entry} />
-            ))}
-          </Suspense>
+        <div className="row g-4">
+          {entries.map((entry) => (
+            <CardBiblioteca key={entry.id} item={entry} />
+          ))}
         </div>
       </div>
     </section>
