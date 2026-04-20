@@ -23,9 +23,14 @@ export default async function Home() {
       <div className="container mb-4">
         <ListNews limit={""} area={"emos"} />
 
-        <Link href="/noticias" className="btn btn-dark mt-3">
-          Ver más noticias
-        </Link>
+        <div className="d-flex justify-content-center mt-4">
+          <Link
+            href="/noticias"
+            className="btn btn-outline-success btn-rounded-custom px-5 py-2 mb-5"
+          >
+            Ver más noticias
+          </Link>
+        </div>
       </div>
     </main>
   );

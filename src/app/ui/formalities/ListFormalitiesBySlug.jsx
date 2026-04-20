@@ -38,12 +38,14 @@ export default async function ListFormalitiesBySlug({ area }) {
               ))}
             </div>
             {allFormalities.length > 6 && (
-              <Link
-                href={`/tramites?area=${area.slug}`}
-                className="btn btn-dark text-white mt-4"
-              >
-                Ver más trámites
-              </Link>
+              <div className="text-center mt-4 mb-4">
+                <Link
+                  href={`/tramites?area=${area.slug}`}
+                  className="btn btn-outline-primary btn-rounded-custom px-5 py-2"
+                >
+                  Ver todos los Trámites
+                </Link>
+              </div>
             )}
           </>
         )}
