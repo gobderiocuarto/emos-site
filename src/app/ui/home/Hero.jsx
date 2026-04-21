@@ -10,7 +10,7 @@ const quickNumbers = [
 ];
 
 const quickLinks = [
-  { label: "Pagos y deudas", href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login", external: true },
+  { label: "Pagos", href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login", external: true },
   { label: "Reclamos", href: "/seccion/la-emos-va-al-cole" },
   { label: "Biblioteca", href: "/biblioteca" },
 ];
@@ -37,20 +37,20 @@ export default async function Hero() {
         <div className="hero-panel-col">
           {/* Logo */}
           <div className="hero-panel__logo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/logos/EMOS_Logo_Horizontal_blanco.webp"
-              alt="EMOS"
-              className="hero-panel__logo-img"
-            />
+            <div className="hero-panel__logo-mark">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logos/EMOS_Logo_Horizontal_blanco.webp"
+                alt="EMOS"
+                className="hero-panel__logo-img"
+              />
+            </div>
             <p className="hero-panel__subtitle">
               Empresa Municipal de Obras y Servicios
               <br />
               <span>Río Cuarto · Córdoba</span>
             </p>
           </div>
-
-          <hr className="hero-panel__divider" />
 
           {/* Buscador */}
           <div className="hero-panel__search">
@@ -75,9 +75,13 @@ export default async function Hero() {
                   rel="noreferrer"
                   className="hero-number-box"
                 >
-                  <i className={isWsp ? "fab fa-whatsapp hero-number-box__icon" : "fas fa-phone hero-number-box__icon"} />
-                  <span className="hero-number-box__label">{n.label}</span>
-                  <span className="hero-number-box__num">{n.number}</span>
+                  <div className="hero-number-box__icon-wrap">
+                    <i className={isWsp ? "fab fa-whatsapp" : "fas fa-phone"} />
+                  </div>
+                  <div className="hero-number-box__info">
+                    <span className="hero-number-box__label">{n.label}</span>
+                    <span className="hero-number-box__num">{n.number}</span>
+                  </div>
                 </a>
               );
             })}

@@ -77,13 +77,13 @@ export default function Menu() {
               >
                 Institucional
               </Link>
-              <Link
+              {/* <Link
                 href="/design"
                 className={`nav-link ${pathname === "/design" ? "active" : ""}`}
                 onClick={handleLinkClick}
               >
                 design
-              </Link>
+              </Link> */}
 
               {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
                 Pagos y Deudas
