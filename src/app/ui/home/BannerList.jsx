@@ -6,7 +6,7 @@ const banners = [
   {
     title: "EMOS VA AL COLE",
     image: "/images/banners/EMOS VA AL COLE.png",
-    url: "/seccion/la-emos-va-al-cole",
+    url: "/seccion/emos-va-al-cole",
     external: false,
   },
   {
@@ -41,7 +41,7 @@ export default function BannerList() {
                   <BannerCard banner={banner} />
                 </Link>
               </div>
-            )
+            ),
           )}
         </div>
       </div>
