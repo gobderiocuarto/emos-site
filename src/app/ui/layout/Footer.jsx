@@ -8,7 +8,6 @@ export default function Footer() {
     <footer className="footer-app" data-read>
       <div className="container">
         <div className="row gy-4">
-
           {/* 1. Logo */}
           <div className="col-lg-3 col-md-12 text-center text-lg-start">
             <div className="mb-3">
@@ -20,7 +19,7 @@ export default function Footer() {
               />
             </div>
             <p className="copyright-text mb-0">
-              Empresa Municipal de Obras y Servicios.
+              Ente Municipal de Obras Sanitarias.
               <br />
               Río Cuarto · Córdoba.
             </p>
@@ -60,7 +59,9 @@ export default function Footer() {
               </li>
               <li className="mb-2 d-flex align-items-center justify-content-center justify-content-lg-start">
                 <i className="fa fa-clock fa-fw me-2"></i>
-                <span className="footer-link">Lun a Vie de 7:00 a 13:00 hs.</span>
+                <span className="footer-link">
+                  Lun a Vie de 7:00 a 13:00 hs.
+                </span>
               </li>
             </ul>
           </div>
@@ -69,9 +70,6 @@ export default function Footer() {
           <div className="col-lg-3 col-md-6 text-center text-lg-start">
             <h6 className="text-white mb-3">Enlaces Útiles</h6>
             <ul className="list-unstyled mb-0">
-              <li className="mb-2">
-                <Link href="/tramites" className="footer-link">Trámites</Link>
-              </li>
               <li className="mb-2">
                 <a
                   href="https://docs.google.com/document/d/1dZtkilozoQ3T_eSL7cXokFaFnmpKVl_ZxyUVKIoZC9s/edit?tab=t.0"
@@ -82,11 +80,11 @@ export default function Footer() {
                   Habilitación de Obras
                 </a>
               </li>
+
               <li className="mb-2">
-                <Link href="/noticias" className="footer-link">Noticias</Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/biblioteca" className="footer-link">Biblioteca Ambiental</Link>
+                <Link href="/biblioteca" className="footer-link">
+                  Biblioteca Ambiental
+                </Link>
               </li>
               <li className="mb-2">
                 <a
@@ -122,13 +120,13 @@ export default function Footer() {
               >
                 <i className="fa-brands fa-instagram"></i>
               </a>
-              <a
+              {/* <a
                 href="https://www.youtube.com/@emosriocuarto1164"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-youtube"></i>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -137,8 +135,9 @@ export default function Footer() {
         <div className="row mt-4 pt-3 footer-copyright-row">
           <div className="col text-center text-md-start">
             <p className="copyright-text mb-0">
-              &copy; {currentYear} EMOS · Empresa Municipal de Obras y Servicios.
-              Desarrollado por la Subsecretaría de Innovación.
+              &copy; {currentYear} EMOS · Ente Municipal de Obras Sanitarias.
+              Desarrollado por la Subsecretaría de Hacienda y Gestión
+              Tecnológica.
             </p>
           </div>
         </div>

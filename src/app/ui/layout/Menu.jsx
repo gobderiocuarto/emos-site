@@ -51,7 +51,7 @@ export default function Menu() {
             <i className="fas fa-bars"></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="toggle">
-            <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="ms-auto">
               <Link
                 href="/noticias"
                 className={`nav-link ${

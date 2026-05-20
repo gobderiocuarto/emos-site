@@ -4,20 +4,26 @@ import React from "react";
 
 const banners = [
   {
-    title: "EMOS VA AL COLE",
-    image: "/images/banners/EMOS VA AL COLE.png",
+    title: "EMOS Va al Cole",
+    subtitle: "Educación ambiental",
+    icon: "fa-school",
+    color: "banner-card--cole",
     url: "/seccion/emos-va-al-cole",
     external: false,
   },
   {
     title: "Pagos y Deudas",
-    image: "/images/banners/PAGOS Y  DEUDAS.png",
+    subtitle: "Pagá online",
+    icon: "fa-credit-card",
+    color: "banner-card--pagos",
     url: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
     external: true,
   },
   {
     title: "Biblioteca Ambiental",
-    image: "/images/banners/BIBLIOTECA.png",
+    subtitle: "Recursos educativos",
+    icon: "fa-book-open",
+    color: "banner-card--biblioteca",
     url: "/biblioteca",
     external: false,
   },

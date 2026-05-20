@@ -10,7 +10,11 @@ const quickNumbers = [
 ];
 
 const quickLinks = [
-  { label: "Pagos", href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login", external: true },
+  {
+    label: "Pagos",
+    href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
+    external: true,
+  },
   { label: "Reclamos", href: "/seccion/la-emos-va-al-cole" },
   { label: "Biblioteca", href: "/biblioteca" },
 ];
@@ -46,26 +50,30 @@ export default async function Hero() {
               />
             </div>
             <p className="hero-panel__subtitle">
-              Empresa Municipal de Obras y Servicios
+              Ente Municipal de Obras Sanitarias
               <br />
               <span>Río Cuarto · Córdoba</span>
             </p>
           </div>
 
           {/* Buscador */}
-          <div className="hero-panel__search">
-            <Suspense>
-              <SearchForm />
-            </Suspense>
+          <div className="hero-panel__search-wrap">
+            <span className="hero-panel__search-label">¿Qué buscás?</span>
+            <div className="hero-panel__search">
+              <Suspense>
+                <SearchForm />
+              </Suspense>
+            </div>
           </div>
 
           {/* Números rápidos */}
           <div className="hero-panel__numbers">
             {quickNumbers.map((n) => {
               const clean = n.number.replace(/\s/g, "");
-              const href = n.type === "whatsapp"
-                ? `https://wa.me/54${clean}`
-                : `tel:${clean}`;
+              const href =
+                n.type === "whatsapp"
+                  ? `https://wa.me/54${clean}`
+                  : `tel:${clean}`;
               const isWsp = n.type === "whatsapp";
               return (
                 <a
@@ -73,7 +81,7 @@ export default async function Hero() {
                   href={href}
                   target={isWsp ? "_blank" : "_self"}
                   rel="noreferrer"
-                  className="hero-number-box"
+                  className={`hero-number-box hero-number-box--${n.type}`}
                 >
                   <div className="hero-number-box__icon-wrap">
                     <i className={isWsp ? "fab fa-whatsapp" : "fas fa-phone"} />
@@ -91,14 +99,20 @@ export default async function Hero() {
           <div className="hero-panel__quicklinks">
             {quickLinks.map((l) =>
               l.external ? (
-                <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="hero-quicklink">
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hero-quicklink"
+                >
                   {l.label}
                 </a>
               ) : (
                 <Link key={l.label} href={l.href} className="hero-quicklink">
                   {l.label}
                 </Link>
-              )
+              ),
             )}
           </div>
         </div>

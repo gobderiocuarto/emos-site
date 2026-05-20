@@ -13,22 +13,23 @@ $border-radius: 8px;
 
 // 2. Tira de Contactos & Mini-Tarjetas (V2)
 .contacts-strip {
-  padding: 36px 0;
+  padding: 40px 0;
 
   &__label {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     color: $gray-600;
-    margin-bottom: 14px;
+
+    margin-bottom: 16px;
     text-align: center;
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
   }
 }
@@ -36,52 +37,62 @@ $border-radius: 8px;
 .contact-card-v2 {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: $white;
-  border: 1px solid #e0e6ea;
-  border-radius: 10px;
-  padding: 10px 16px;
+  border: 2px solid $gray-500;
+  border-radius: 12px;
+  padding: 12px 18px;
   text-decoration: none !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition:
     box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  min-width: 180px;
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+    border-color: $primary-blue;
   }
 
   &__icon {
     font-size: 1.3rem;
-    border-radius: 8px;
-    width: 38px;
-    height: 38px;
+    border-radius: 10px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: #f3f6f9;
+
+    &--whatsapp {
+      background: rgba(#00c96b, 0.1);
+    }
+
+    &--phone {
+      background: rgba(#009de0, 0.1);
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px;
   }
 
   &__title {
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: $text-dark;
+    letter-spacing: 0.08em;
+    color: $text-muted;
   }
 
   &__number {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #56595a;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: $text-dark;
   }
 }
 

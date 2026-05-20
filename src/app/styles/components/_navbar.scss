@@ -1,10 +1,10 @@
 .navbar {
-  padding: 1px;
+  padding: 5px;
   background-color: darken($primary, 0);
 
   &-brand {
     .mobile {
-      width: 110px;
+      width: 120px;
       height: auto;
       display: none;
     }
@@ -27,7 +27,7 @@
   }
 
   &-toggler {
-    padding: 16px;
+    padding: 10px;
     border-radius: 0;
     border: 0;
     color: white;
@@ -35,16 +35,31 @@
   }
 
   &-nav {
-    gap: 10px;
+    gap: 20px;
 
     .nav-link {
       text-transform: uppercase;
       font-weight: 500;
+      font-size: 0.9rem !important;
       letter-spacing: 0.01rem;
-      color: rgba(white, 1);
+      color: white;
+      display: inline-block;
+      padding: 15px 0;
+      transition: all 0.2s ease;
 
       &.active {
-        color: white;
+        color: white !important;
+        font-weight: 800;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 40px;
+          background-color: $secondary;
+          margin-top: 5px;
+        }
       }
     }
 

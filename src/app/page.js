@@ -21,7 +21,7 @@ export default async function Home() {
       <ListFormalitiesBySlug area={area} />
 
       <div className="container mb-4">
-        <ListNews limit={""} area={"emos"} />
+        <ListNews limit={6} area={"emos"} />
 
         <div className="d-flex justify-content-center mt-4">
           <Link

@@ -24,7 +24,7 @@ export default async function RelatedNews({ postId = "", area = "", page = 1, li
 
   return (
     <div className='news-related'>
-      <h4 className='news-related--subtitle'>{title}</h4>
+      <h4 className='news-related--subtitle'>{currentTitle}</h4>
       {posts.map((post) => (
         <Link href={`/noticias/${post.slug}`} key={post.id}>
           <div className="card mb-3">

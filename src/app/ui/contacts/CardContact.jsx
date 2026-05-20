@@ -11,7 +11,7 @@ export default function CardContact({ service }) {
       rel="noreferrer"
       className="contact-card-v2"
     >
-      <div className="contact-card-v2__icon" style={{ color: iconColor }}>
+      <div className={`contact-card-v2__icon contact-card-v2__icon--${service.type}`} style={{ color: iconColor }}>
         <i className={isWhatsapp ? "fab fa-whatsapp" : "fas fa-phone"} />
       </div>
       <div className="contact-card-v2__info">
