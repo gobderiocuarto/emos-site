@@ -1,12 +1,6 @@
 import SeachResultGroup from "./SeachResultGroup";
 
 export default async function SearchResults({ results, query }) {
-  //console.log("results:", results);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  const { entries, procedures, posts, areas, categories } = results;
-
-
   if (!results) {
     return (
       <div>
@@ -15,35 +9,59 @@ export default async function SearchResults({ results, query }) {
     );
   }
 
-  // Lógica para mostrar resultados de búsqueda
+  const {
+    entries = { data: [] },
+    procedures = { data: [] },
+    posts = { data: [] },
+  } = results;
+
+  const proceduresResults = procedures?.data || [];
+  const postsResults = posts?.data || [];
+  const entriesResults = entries?.data || [];
+
+  const hasResults =
+    proceduresResults.length > 0 ||
+    postsResults.length > 0 ||
+    entriesResults.length > 0;
+
   return (
     <div className="search-content">
       <div className="search-header">
-        <h4>Término de búsqueda: <span>{`"${query}"`}</span></h4>
+        <h4>
+          Término de búsqueda: <span>{`"${query}"`}</span>
+        </h4>
       </div>
       <div className="search-results">
+        {!hasResults && (
+          <div className="alert alert-info">
+            No se encontraron resultados para "{query}"
+          </div>
+        )}
 
-        {/* Trámites */}
-        {procedures.data.length && procedures.data.length > 0 ? (
-          <SeachResultGroup url="/tramites/" title="Trámites" results={procedures.data} />
-        ) : ("")}
+        {proceduresResults.length > 0 && (
+          <SeachResultGroup
+            url="/tramites/"
+            title="Trámites"
+            results={proceduresResults}
+          />
+        )}
 
-        {/* Noticias */}
-        {posts.data.length && posts.data.length > 0 ? (
-          <SeachResultGroup url="/noticias/" title="Noticias" results={posts.data} />
-        ) : ("")}
+        {postsResults.length > 0 && (
+          <SeachResultGroup
+            url="/noticias/"
+            title="Noticias"
+            results={postsResults}
+          />
+        )}
 
-        {/* Categorias de Tramites */}
-        {categories.data.length && categories.data.length > 0 ? (
-          <SeachResultGroup url="/tramites?category=" title="Categorias de Tramites" results={categories.data} />
-        ) : ("")}
-
-        {/* Entry */}
-        {entries.data.length && entries.data.length > 0 ? (
-          <SeachResultGroup url="/seccion/" title="Programas y Servicios" results={entries.data} />
-        ) : ("")}
+        {entriesResults.length > 0 && (
+          <SeachResultGroup
+            url="/seccion/"
+            title="Programas y Servicios"
+            results={entriesResults}
+          />
+        )}
       </div>
     </div>
-
   );
 }

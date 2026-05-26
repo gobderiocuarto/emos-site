@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import SearchResults from "@/app/ui/search/SearchResults";
 import { fetchSearch } from "@/app/lib/DataSearch";
-import RelatedNews from "@/app/ui/news/RelatedNews";
 import SearchForm from "@/app/ui/commons/SearchForm";
 
 export const metadata = {
@@ -16,7 +15,7 @@ export default async function BuscarPage({ searchParams }) {
     <main className="search search-page">
       <div className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-12">
             <div className="mb-4">
               <SearchForm />
             </div>
@@ -33,9 +32,6 @@ export default async function BuscarPage({ searchParams }) {
             >
               <AsyncSearchResults query={searchQuery} />
             </Suspense>
-          </div>
-          <div className="col-md-4">
-            <RelatedNews />
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import AreaDetail from "./ui/formality/AreaDetail";
 import ListFormalitiesBySlug from "./ui/formalities/ListFormalitiesBySlug";
 import ContactsFormailite from "./ui/contacts/ContactsFormailite";
 import BannerList from "./ui/home/BannerList";
+import EmosBanners from "./ui/home/EmosBanners";
 
 export default async function Home() {
   const area = await fetchAreaBySlug("emos");
@@ -19,6 +20,7 @@ export default async function Home() {
 
       <ContactsFormailite />
       <ListFormalitiesBySlug area={area} />
+      <EmosBanners />
 
       <div className="container mb-4">
         <ListNews limit={6} area={"emos"} />

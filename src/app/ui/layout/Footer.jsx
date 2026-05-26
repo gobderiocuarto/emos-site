@@ -27,25 +27,8 @@ export default function Footer() {
 
           {/* 2. Contacto */}
           <div className="col-lg-3 col-md-6 text-center text-lg-start">
-            <h6 className="text-white mb-3">Contacto Rápido</h6>
+            <h6 className="text-white mb-3">Contacto </h6>
             <ul className="list-unstyled mb-0">
-              <li className="mb-2">
-                <i className="fa fa-phone fa-fw me-2"></i>
-                <a href="tel:08004445454" className="footer-link">
-                  0800-444-5454
-                </a>
-              </li>
-              <li className="mb-2">
-                <i className="fab fa-whatsapp fa-fw me-2"></i>
-                <a
-                  href="https://wa.me/543584111395"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link"
-                >
-                  358 411 1395 (Reclamos)
-                </a>
-              </li>
               <li className="mb-2">
                 <i className="fa fa-map-marker-alt fa-fw me-2"></i>
                 <a
@@ -60,7 +43,7 @@ export default function Footer() {
               <li className="mb-2 d-flex align-items-center justify-content-center justify-content-lg-start">
                 <i className="fa fa-clock fa-fw me-2"></i>
                 <span className="footer-link">
-                  Lun a Vie de 7:00 a 13:00 hs.
+                  Lunes a Viernes de 7 a 13 hs.
                 </span>
               </li>
             </ul>
@@ -85,16 +68,6 @@ export default function Footer() {
                 <Link href="/biblioteca" className="footer-link">
                   Biblioteca Ambiental
                 </Link>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link"
-                >
-                  Oficina Virtual
-                </a>
               </li>
             </ul>
           </div>

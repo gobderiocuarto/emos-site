@@ -10,13 +10,13 @@ const quickNumbers = [
 ];
 
 const quickLinks = [
-  {
-    label: "Pagos",
-    href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
-    external: true,
-  },
-  { label: "Reclamos", href: "/seccion/la-emos-va-al-cole" },
-  { label: "Biblioteca", href: "/biblioteca" },
+  // {
+  //   label: "Pagos",
+  //   href: "https://emosvirtual.riocuarto.gov.ar:9090/emosweb/servlet/com.emosweb.login",
+  //   external: true,
+  // },
+  // { label: "Reclamos", href: "/seccion/la-emos-va-al-cole" },
+  // { label: "Biblioteca", href: "/biblioteca" },
 ];
 
 export default async function Hero() {

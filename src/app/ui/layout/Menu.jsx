@@ -53,29 +53,32 @@ export default function Menu() {
           <Navbar.Collapse id="toggle">
             <Nav className="ms-auto">
               <Link
-                href="/noticias"
-                className={`nav-link ${
-                  pathname === "/noticias" ? "active" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                Noticias
-              </Link>
-              <Link
-                href="/biblioteca"
-                className={`nav-link ${
-                  pathname === "/tramites" ? "active" : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                Biblioteca Ambiental
-              </Link>
-              <Link
                 href="/Institucional"
                 className={`nav-link ${pathname === "/Institucional" ? "active" : ""}`}
                 onClick={handleLinkClick}
               >
                 Institucional
+              </Link>
+              <Link
+                href="/tramites"
+                className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
+                Trámites
+              </Link>
+              <Link
+                href="/biblioteca"
+                className={`nav-link ${pathname === "/biblioteca" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
+                Biblioteca
+              </Link>
+              <Link
+                href="/noticias"
+                className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
+                Noticias
               </Link>
               {/* <Link
                 href="/design"

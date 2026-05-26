@@ -5,7 +5,7 @@ export default function ContactsFormalite() {
   return (
     <section className="contacts-strip bg-gray" data-read>
       <div className="container">
-        <p className="contacts-strip__label">Contactanos</p>
+        <p className="contacts-strip__label">Contactános</p>
         <div className="contacts-strip__list">
           {servicesData.map((service) => (
             <CardContact key={service.id} service={service} />

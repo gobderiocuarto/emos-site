@@ -14,18 +14,17 @@ export const metadata = {
 export default async function News({ searchParams }) {
   const page = Number(searchParams?.page) || 1;
   const limit = 9;
-  const areaSlug = searchParams?.area ? searchParams?.area : "";
+  const areaSlug = searchParams?.area || "emos";
 
   const [areas, posts, areaName] = await Promise.all([
     fetchAreas(),
     fetchPosts({ page, limit, area: areaSlug }),
-    // Solo se ejecuta fetchAreaBySlug si hay un filtro de área
-    areaSlug ? fetchAreaBySlug(areaSlug) : Promise.resolve(null),
+    areaSlug !== "emos"
+      ? fetchAreaBySlug(areaSlug)
+      : Promise.resolve({ name: "EMOS" }),
   ]);
 
-  const subtitle = areaName
-    ? `${areaName.name} (${posts.total})`
-    : `general (${posts.total})`;
+  const subtitle = `${areaName?.name || "EMOS"} (${posts.total})`;
 
   return (
     <main className="news news-page" data-read>
@@ -48,7 +47,12 @@ export default async function News({ searchParams }) {
               </div>
             ) : (
               <>
-                <ListNews page={page} limit={limit} area={"emos"} />
+                <ListNews
+                  page={page}
+                  limit={limit}
+                  area={areaSlug}
+                  showHeader={false}
+                />
                 <Pagination
                   currentPage={posts.current_page}
                   totalNews={posts.total}
