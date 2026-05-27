@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import FormalitiesList from "@/app/ui/formalities/ListFormalities";
 import FormalitiesFilters from "@/app/ui/formalities/FilterFormality";
 import HeaderSection from "@/app/ui/layout/HeaderSection";
+import MuniRedirectBanner from "@/app/ui/commons/MuniRedirectBanner";
 import { fetchFormalities } from "@/app/lib/DataFormalities";
 
 export default async function Formalities({ searchParams }) {
@@ -34,6 +35,11 @@ export default async function Formalities({ searchParams }) {
               <FormalitiesList params={params} formalities={formalities} />
             </Suspense>
           </div>
+          <MuniRedirectBanner
+            href="https://www.riocuarto.gob.ar/tramites"
+            label="Ver trámites en Municipalidad"
+            description="Si no encontraste el trámite que necesitabas, en la Municipalidad de Río Cuarto hay más trámites disponibles."
+          />
         </div>
       </main>
     </Suspense>
