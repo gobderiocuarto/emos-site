@@ -4,7 +4,7 @@ import Icon from "@/app/ui/icons/Icon";
 const ICON_NAMES = ["circles", "squares", "waves"];
 const ICON_COLORS = ["green", "lightblue", "orange", "pink", "yellow"];
 
-export default function CardBiblioteca({ item }) {
+export default function CardBiblioteca({ item, showDate = false, colClass = "col-12 col-md-6 col-lg-4", compact = false }) {
   const hasThumbnail = !!item?.thumbnail;
   const image = item.thumbnail || item.image || null;
 
@@ -13,7 +13,7 @@ export default function CardBiblioteca({ item }) {
   const iconColor = ICON_COLORS[idNum % ICON_COLORS.length];
 
   const date = item.created_at || item.published_at || item.updated_at || null;
-  const dateFormatted = date
+  const dateFormatted = showDate && date
     ? new Date(date).toLocaleDateString("es-AR", {
         year: "numeric",
         month: "long",
@@ -21,8 +21,38 @@ export default function CardBiblioteca({ item }) {
       })
     : null;
 
+  if (compact) {
+    return (
+      <div className={`${colClass}`}>
+        <Link href={`/seccion/${item.slug}`} className="card-biblioteca-link w-100">
+          <article className="card-biblioteca card-biblioteca--compact h-100">
+            <div className="card-biblioteca__compact-icon">
+              <Icon icon={{ name: iconName, color: iconColor, size: "28" }} />
+            </div>
+            <div className="card-biblioteca__compact-body">
+              <span className="card-biblioteca__title">{item.title}</span>
+            </div>
+            <svg
+              className="card-biblioteca__arrow flex-shrink-0"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </article>
+        </Link>
+      </div>
+    );
+  }
+
   return (
-    <div className="col-12 col-md-6 col-lg-4 d-flex">
+    <div className={`${colClass} d-flex`}>
       <Link href={`/seccion/${item.slug}`} className="card-biblioteca-link w-100">
         <article className="card-biblioteca h-100">
 

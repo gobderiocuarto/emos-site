@@ -9,6 +9,17 @@
   }
 }
 
+.related-biblioteca {
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $primary;
+  }
+}
+
 // Enlace wrapper — sin decoración y que herede el alto del flex
 .card-biblioteca-link {
   text-decoration: none;
@@ -172,6 +183,67 @@
   &__arrow {
     flex-shrink: 0;
     transition: transform 0.2s ease;
+  }
+}
+
+// ─── Variante noticias (acento verde) ─────────────────────────
+.card-biblioteca--news {
+  border-left-color: transparent;
+
+  .card-biblioteca-link:hover & {
+    box-shadow: 0 10px 32px rgba($success, 0.13);
+    border-left-color: $success;
+
+    .card-biblioteca__title {
+      color: $success;
+    }
+  }
+
+  .card-biblioteca__date i {
+    color: $success;
+  }
+
+  .card-biblioteca__cta {
+    color: $success;
+  }
+}
+
+// ─── Variante compacta (sidebar) ──────────────────────────────
+.card-biblioteca--compact {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+
+  .card-biblioteca__compact-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e9f7fd 0%, #d0eefa 100%);
+    border-radius: 8px;
+  }
+
+  .card-biblioteca__compact-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-biblioteca__title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin: 0;
+  }
+
+  .card-biblioteca__arrow {
+    color: $primary;
+    opacity: 0.6;
   }
 }
 

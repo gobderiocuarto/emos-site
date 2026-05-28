@@ -1,4 +1,5 @@
 import RelatedNews from "@/app/ui/news/RelatedNews";
+import RelatedBiblioteca from "@/app/ui/ambiental/RelatedBiblioteca";
 import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
@@ -40,10 +41,12 @@ export default async function SeccionDetail({ params }) {
           <div className="col-lg-8">
             <DetailEntries detailEntry={detailEntry} links />
 
-            <CombinedEntriesAreas
-              area={detailEntry.area}
-              title="Otros programas y servicios"
-            />
+            {detailEntry.type !== "other" && detailEntry.type !== "program" && (
+              <CombinedEntriesAreas
+                area={detailEntry.area}
+                title="Otros programas y servicios"
+              />
+            )}
           </div>
 
           <div className="col-lg-4 position-relative">
@@ -54,7 +57,11 @@ export default async function SeccionDetail({ params }) {
               <div className="mb-4 d-none d-md-block">
                 <Buttons links={detailEntry.links} />
               </div>
-              <RelatedNews title="Noticias Relacionadas" limit={3} />
+              {detailEntry.type === "other" ? (
+                <RelatedBiblioteca currentSlug={slug} />
+              ) : (
+                <RelatedNews title="Noticias Relacionadas" limit={3} />
+              )}
             </div>
           </div>
         </div>

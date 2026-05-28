@@ -26,12 +26,16 @@ export async function fetchAreas() {
   return data.data;
 }
 
-export async function fetchAreaBySlug(slug) {
+export async function fetchAreaBySlug(slug, { children = false } = {}) {
   if (!slug) {
     return null;
   }
 
-  const res = await fetch(`${API_URL}/areas/${slug}`, API_OPTIONS);
+  const url = children
+    ? `${API_URL}/areas/${slug}?children=1`
+    : `${API_URL}/areas/${slug}`;
+
+  const res = await fetch(url, API_OPTIONS);
   if (!res.ok) {
     throw new Error(`Failed to fetch area details for: ${slug}`);
   }

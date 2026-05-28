@@ -35,7 +35,8 @@ export default async function SearchResults({ results, query }) {
         </div>
         {hasResults && (
           <p className="search-header-count">
-            {totalResults} resultado{totalResults !== 1 ? "s" : ""} encontrado{totalResults !== 1 ? "s" : ""}
+            {totalResults} resultado{totalResults !== 1 ? "s" : ""} encontrado
+            {totalResults !== 1 ? "s" : ""}
           </p>
         )}
       </div>
@@ -76,8 +77,8 @@ export default async function SearchResults({ results, query }) {
 
       <MuniRedirectBanner
         href={`https://www.riocuarto.gob.ar/buscar?q=${encodeURIComponent(query)}`}
-        label="Buscar en Municipalidad"
-        description="Si no encontraste lo que buscabas, podés ampliar la búsqueda en el sitio de la Municipalidad de Río Cuarto."
+        label="Buscar en Gobierno"
+        description="Si no encontraste lo que buscas, podés ampliar la búsqueda en el sitio web del Gobierno de Río Cuarto."
       />
     </div>
   );

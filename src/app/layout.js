@@ -2,6 +2,7 @@ import "./styles/app.scss";
 import { Inter } from "next/font/google";
 import Header from "./ui/layout/Header";
 import Footer from "./ui/layout/Footer";
+import BackArrow from "./ui/layout/BackArrow";
 import Script from "next/script";
 
 // import Chat from "./ui/chat/Chat";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
 
       <body className={`${inter.variable}`}>
         <Header />
+        <BackArrow />
         <div className="layout-content">
           {children}
         </div>

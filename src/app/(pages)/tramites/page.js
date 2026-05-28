@@ -11,7 +11,7 @@ export default async function Formalities({ searchParams }) {
     Object.entries(searchParams).map(([key, value]) => [
       key,
       Array.isArray(value) ? value[0] : String(value), // Toma el primer valor si es un array, o conviértelo a string
-    ])
+    ]),
   );
   if (!cleanedSearchParams.area || cleanedSearchParams.area === "") {
     cleanedSearchParams.area = "emos";
@@ -28,7 +28,7 @@ export default async function Formalities({ searchParams }) {
     <Suspense>
       <main className="formalities formalities-page" data-read>
         <div className="container">
-          <HeaderSection title="Tramites" subtitle={subtitle} />
+          <HeaderSection title="Trámites" subtitle={subtitle} />
           <div className="row justify-content-center">
             <Suspense fallback={<div>Cargando trámites...</div>}>
               <FormalitiesFilters />
@@ -37,8 +37,8 @@ export default async function Formalities({ searchParams }) {
           </div>
           <MuniRedirectBanner
             href="https://www.riocuarto.gob.ar/tramites"
-            label="Ver trámites en Municipalidad"
-            description="Si no encontraste el trámite que necesitabas, en la Municipalidad de Río Cuarto hay más trámites disponibles."
+            label="Ver trámites en Gobierno"
+            description="Si no encontraste el trámite que necesitas, en el Sitio Web del Gobierno de Río Cuarto hay más trámites disponibles."
           />
         </div>
       </main>

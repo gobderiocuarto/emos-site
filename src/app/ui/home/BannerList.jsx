@@ -36,13 +36,13 @@ export default function BannerList() {
         <div className="row">
           {banners.map((banner) =>
             banner.external ? (
-              <div key={banner.title} className="col-md-4">
+              <div key={banner.title} className="col-md-4 mb-3">
                 <a href={banner.url} target="_blank" rel="noopener noreferrer">
                   <BannerCard banner={banner} />
                 </a>
               </div>
             ) : (
-              <div key={banner.title} className="col-md-4">
+              <div key={banner.title} className="col-md-4 mb-3">
                 <Link href={banner.url}>
                   <BannerCard banner={banner} />
                 </Link>
