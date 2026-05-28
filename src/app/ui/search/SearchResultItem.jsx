@@ -8,8 +8,10 @@ export default function SearchResultItem({ result, url, color }) {
         <div className="search-item-inner" style={{ borderLeftColor: color }}>
           <div className="search-item-body">
             <span className="search-item-title">{result.title}</span>
-            {result.excerpt && (
-              <p className="search-item-excerpt">{result.excerpt}</p>
+            {(result.excerpt || result.summary || result.description) && (
+              <p className="search-item-excerpt">
+                {result.excerpt || result.summary || result.description}
+              </p>
             )}
           </div>
           <i className="fa fa-chevron-right search-item-arrow"></i>

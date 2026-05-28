@@ -122,6 +122,17 @@
     }
   }
 
+  &-detail--embedded {
+    margin-bottom: 2.5rem;
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      display: block;
+    }
+  }
+
   &-detail {
     padding: 60px 0;
 

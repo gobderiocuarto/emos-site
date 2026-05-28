@@ -40,7 +40,7 @@ $hero-height-md: 420px;
   @media (max-width: 767px) {
     flex: none;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -346,6 +346,12 @@ $hero-height-md: 420px;
       &:hover {
         background: darken($success, 8%);
         border-color: darken($success, 8%);
+      }
+
+      @media (max-width: 767px) {
+        font-size: 0.95rem;
+        padding: 0 1.4rem;
+        min-height: 46px;
       }
     }
   }

@@ -10,7 +10,14 @@ export default function Footer() {
         <div className="row gy-4">
           {/* 1. Logo */}
           <div className="col-lg-3 col-md-12 text-center text-lg-start">
-            <div className="mb-3">
+            <div className="footer-logos mb-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logos/logo-gobierno-white.webp"
+                alt="Municipalidad de Río Cuarto"
+                className="logo-footer"
+              />
+              <div className="footer-logos__divider" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/logos/EMOS_Logo_Horizontal_blanco.webp"
