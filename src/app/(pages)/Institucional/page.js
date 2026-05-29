@@ -3,6 +3,7 @@ import HeroAreas from "@/app/ui/areas/HeroAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
+import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import MyImageGallery from "@/app/ui/commons/ImageGallery";
 // import RelatedNews from "@/app/ui/news/RelatedNews";
 
@@ -34,7 +35,19 @@ export default async function AreaDetailPage() {
   }
 
   const emosFiles = emosArea?.files || [];
-  const emosChildren = emosArea?.children || [];
+
+  // Armamos la lista de "dependencias": todo lo que tenga contact dentro del área EMOS.
+  // Primero EMOS mismo (si tiene contactos), luego sus hijos.
+  const dependencies = [
+    ...(emosArea?.contact?.length > 0
+      ? [{ id: emosArea.id, name: emosArea.name, contact: emosArea.contact }]
+      : []),
+    ...(emosArea?.children?.filter((c) => c.contact?.length > 0) || []),
+  ];
+
+  const emosWithDependencies = emosArea
+    ? { ...emosArea, children: dependencies }
+    : null;
 
   return (
     <main className="area area-detail">
@@ -51,9 +64,14 @@ export default async function AreaDetailPage() {
             )}
           </div>
           <div className="col-lg-4 area-column-right">
-            {emosChildren.length > 0 && (
+            {emosArea && (
+              <div className="col-md-12 mb-4">
+                <IntitutionalAreas area={emosArea} />
+              </div>
+            )}
+            {emosWithDependencies && dependencies.length > 0 && (
               <div className="col-md-12 mb-4 area-order-2">
-                <AreaDetail area={emosArea} />
+                <AreaDetail area={emosWithDependencies} />
               </div>
             )}
             {/* <div className="area-order-6">
