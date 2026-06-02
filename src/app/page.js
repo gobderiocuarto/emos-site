@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import ListNews from "./ui/news/ListNews";
 
 import Hero from "./ui/home/Hero";
