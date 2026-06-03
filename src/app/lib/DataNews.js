@@ -29,6 +29,19 @@ export async function fetchNews({ page = 1, limit = 9, area = "emos" } = {}) {
   return data.data;
 }
 
+export async function fetchAllNews({ area = "emos" } = {}) {
+  const res = await fetch(
+    `${API_URL}/posts?per_page=999&page=1&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
+    { ...API_OPTIONS, next: { revalidate: 0 } }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch all news");
+  }
+  const data = await res.json();
+  return data.data ?? [];
+}
+
 export async function fetchPosts({ page = 1, limit = 9, area = "emos" } = {}) {
   const res = await fetch(
     `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,

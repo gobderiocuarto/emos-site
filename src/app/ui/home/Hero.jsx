@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import Slides from "./Slides";
 import SearchForm from "../commons/SearchForm";
-import { fetchNews } from "@/app/lib/DataNews";
+import { fetchAllNews } from "@/app/lib/DataNews";
 
 const quickNumbers = [
   { label: "Reclamos", number: "358 4111 395", type: "whatsapp" },
@@ -22,7 +22,9 @@ const quickLinks = [
 export default async function Hero() {
   let posts = [];
   try {
-    posts = await fetchNews({ limit: 5 });
+    const all = await fetchAllNews();
+    const highlighted = all.filter((p) => p.highlighted_area === true);
+    posts = (highlighted.length > 0 ? highlighted : all).slice(0, 5);
   } catch {
     // silently fail — slides renders empty state
   }
