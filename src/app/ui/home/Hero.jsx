@@ -23,8 +23,14 @@ export default async function Hero() {
   let posts = [];
   try {
     const all = await fetchAllNews();
-    const highlighted = all.filter((p) => p.highlighted_area === true);
-    posts = (highlighted.length > 0 ? highlighted : all).slice(0, 5);
+    const highlighted = all.filter((p) => p.highlighted_area === true).slice(0, 5);
+    if (highlighted.length < 5) {
+      const highlightedIds = new Set(highlighted.map((p) => p.id));
+      const rest = all.filter((p) => !highlightedIds.has(p.id));
+      posts = [...highlighted, ...rest].slice(0, 5);
+    } else {
+      posts = highlighted;
+    }
   } catch {
     // silently fail — slides renders empty state
   }
