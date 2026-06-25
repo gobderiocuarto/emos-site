@@ -78,6 +78,66 @@
   }
 }
 
+// Portaled Offcanvas styles (outside .navbar)
+.offcanvas {
+  background-color: #008cc8 !important;
+  color: white;
+  width: 50% !important;
+  min-width: 250px;
+
+  &-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .slogan-logo-nav {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      padding-left: 5px;
+    }
+  }
+
+  .offcanvas-body {
+    padding: 10px 20px;
+
+    .nav {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-content: flex-start;
+      flex-grow: 0;
+      height: auto;
+      width: 100%;
+    }
+
+    .nav-link {
+      color: white !important;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &.active {
+        font-weight: bold;
+        color: white !important;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 991px) {
   .navbar {
     .container {

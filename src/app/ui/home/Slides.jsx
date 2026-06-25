@@ -1,20 +1,72 @@
 "use client";
-import { useState, useRef } from "react";
-import Link from "next/link";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 const SWIPE_THRESHOLD = 50;
+const AUTO_PLAY_INTERVAL = 6000;
+const SLIDE_DURATION = 500;
 
-export default function Slides({ posts = [] }) {
+function resolveBannerUrl(url) {
+  if (!url || Array.isArray(url)) return null;
+  const { type, value } = url;
+  if (!type || !value) return null;
+
+  switch (type) {
+    case "external":  return { href: value, external: true };
+    case "procedure": return { href: `/tramites/${value}`, external: false };
+    case "post":      return { href: `/noticias/${value}`, external: false };
+    case "entry":     return { href: `/seccion/${value}`, external: false };
+    default:          return { href: value, external: true };
+  }
+}
+
+export default function Slides({ banners = [] }) {
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const [direction, setDirection] = useState(null);
   const dragStart = useRef(null);
   const isDragging = useRef(false);
+  const timerRef = useRef(null);
+  const slidingRef = useRef(false);
 
-  if (!posts.length) {
+  const goTo = useCallback((getNext, dir) => {
+    if (slidingRef.current) return;
+    slidingRef.current = true;
+
+    setActiveIndex((curr) => {
+      const nextIdx = typeof getNext === "function" ? getNext(curr) : getNext;
+      if (nextIdx === curr) { slidingRef.current = false; return curr; }
+      setPrevIndex(curr);
+      setDirection(dir);
+      setTimeout(() => {
+        setPrevIndex(null);
+        setDirection(null);
+        slidingRef.current = false;
+      }, SLIDE_DURATION);
+      return nextIdx;
+    });
+  }, []);
+
+  const next = useCallback(
+    () => goTo((i) => (i === banners.length - 1 ? 0 : i + 1), "next"),
+    [banners.length, goTo]
+  );
+
+  const prev = useCallback(
+    () => goTo((i) => (i === 0 ? banners.length - 1 : i - 1), "prev"),
+    [banners.length, goTo]
+  );
+
+  useEffect(() => {
+    if (banners.length <= 1) return;
+    timerRef.current = setInterval(next, AUTO_PLAY_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [banners.length, next, activeIndex]);
+
+  if (!banners.length) {
     return <div className="hero-slide-placeholder" />;
   }
-
-  const prev = () => setActiveIndex((i) => (i === 0 ? posts.length - 1 : i - 1));
-  const next = () => setActiveIndex((i) => (i === posts.length - 1 ? 0 : i + 1));
 
   const handleDragStart = (clientX) => {
     dragStart.current = clientX;
@@ -31,15 +83,63 @@ export default function Slides({ posts = [] }) {
     dragStart.current = null;
   };
 
-  // Touch
   const onTouchStart = (e) => handleDragStart(e.touches[0].clientX);
-  const onTouchEnd   = (e) => handleDragEnd(e.changedTouches[0].clientX);
-
-  // Mouse
+  const onTouchEnd = (e) => handleDragEnd(e.changedTouches[0].clientX);
   const onMouseDown = (e) => handleDragStart(e.clientX);
-  const onMouseUp   = (e) => handleDragEnd(e.clientX);
+  const onMouseUp = (e) => handleDragEnd(e.clientX);
 
-  const post = posts[activeIndex];
+  const isSliding = prevIndex !== null && direction !== null;
+
+  const renderBanner = (banner, className) => {
+    const resolved = resolveBannerUrl(banner.url);
+
+    const handleClick = (e) => {
+      if (isDragging.current || !resolved) return;
+      if (e.target.closest(".hero-arrow, .hero-indicator")) return;
+      if (resolved.external) {
+        window.open(resolved.href, "_blank", "noreferrer");
+      } else {
+        router.push(resolved.href);
+      }
+    };
+
+    return (
+      <div
+        className={`hero-slide ${className} ${resolved ? "hero-slide--clickable" : ""}`}
+        onClick={handleClick}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={banner.background_image || "/images/no-image.jpg"}
+          alt={banner.title}
+          className="hero-slide-img"
+          draggable={false}
+        />
+        <div className="hero-slide-gradient" />
+        <div className="hero-slide-content">
+          <div className="hero-slide-body">
+            <h2 className="hero-slide-title">{banner.title}</h2>
+            {banner.excerpt && (
+              <p className="hero-slide-excerpt">{banner.excerpt}</p>
+            )}
+            {banner.button_title && (
+              <span className="hero-slide-cta">
+                {banner.button_title}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const enterClass = isSliding
+    ? direction === "next" ? "hero-slide--enter-right" : "hero-slide--enter-left"
+    : "";
+
+  const exitClass = isSliding
+    ? direction === "next" ? "hero-slide--exit-left" : "hero-slide--exit-right"
+    : "";
 
   return (
     <div
@@ -50,18 +150,10 @@ export default function Slides({ posts = [] }) {
       onMouseUp={onMouseUp}
       style={{ cursor: "grab", userSelect: "none" }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={post.image || "/images/no-image.jpg"}
-        alt={post.title}
-        className="hero-slide-img"
-        key={post.id}
-        draggable={false}
-      />
+      {isSliding && renderBanner(banners[prevIndex], exitClass)}
+      {renderBanner(banners[activeIndex], enterClass)}
 
-      <div className="hero-slide-gradient" />
-
-      {posts.length > 1 && (
+      {banners.length > 1 && (
         <>
           <button className="hero-arrow hero-arrow--prev" onClick={prev} aria-label="Anterior">
             <i className="fas fa-chevron-left" />
@@ -69,40 +161,21 @@ export default function Slides({ posts = [] }) {
           <button className="hero-arrow hero-arrow--next" onClick={next} aria-label="Siguiente">
             <i className="fas fa-chevron-right" />
           </button>
+          <div className="hero-indicators">
+            {banners.map((_, i) => (
+              <button
+                key={i}
+                className={`hero-indicator${i === activeIndex ? " active" : ""}`}
+                onClick={() => {
+                  if (i === activeIndex) return;
+                  goTo(i, i > activeIndex ? "next" : "prev");
+                }}
+                aria-label={`Ir a banner ${i + 1}`}
+              />
+            ))}
+          </div>
         </>
       )}
-
-      <div className="hero-slide-content">
-        <div className="hero-slide-body">
-          <span className="hero-slide-tag">Noticias</span>
-          <h2 className="hero-slide-title">{post.title}</h2>
-          {post.excerpt && (
-            <p className="hero-slide-excerpt">{post.excerpt}</p>
-          )}
-        </div>
-
-        <div className="hero-slide-footer">
-          {posts.length > 1 && (
-            <div className="hero-indicators">
-              {posts.map((_, i) => (
-                <button
-                  key={i}
-                  className={`hero-indicator${i === activeIndex ? " active" : ""}`}
-                  onClick={() => setActiveIndex(i)}
-                  aria-label={`Ir a noticia ${i + 1}`}
-                />
-              ))}
-            </div>
-          )}
-          <Link
-            href={`/noticias/${post.slug}`}
-            className="hero-slide-cta"
-            onClick={(e) => isDragging.current && e.preventDefault()}
-          >
-            Leer Noticia <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

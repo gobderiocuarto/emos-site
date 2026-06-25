@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,21 +15,28 @@ import BackArrow from "./BackArrow";
 export default function Menu() {
   const pathname = usePathname();
   const [expanded, setExpanded] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [showSearchModal, setShowSearchModal] = useState(false); // Estado para el modal
+  const [showSearchModal, setShowSearchModal] = useState(false);
 
   const handleLinkClick = () => {
     setExpanded(false);
   };
-  const handleDropdownItemClick = () => {
-    setExpanded(false);
-    setDropdownOpen(false);
-  };
 
-  const handleSearchModalShow = () => setShowSearchModal(true);
+  const handleSearchModalShow = () => {
+    setShowSearchModal(true);
+    setExpanded(false);
+  };
   const handleSearchModalClose = () => setShowSearchModal(false);
-  Navbar;
-  //console.log(pathname);
+
+  useEffect(() => {
+    const LG_BREAKPOINT = 992;
+    const handleResize = () => {
+      if (window.innerWidth >= LG_BREAKPOINT) {
+        setExpanded(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -45,91 +52,67 @@ export default function Menu() {
         <Container>
           <BackArrow />
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
-            <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
-            <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
-            <span className="sr-only">Gobierno de Río Cuarto</span>
+            <Image src={LogoMobile} className="mobile" alt="logo EMOS" />
+            <Image src={LogoDesktop} className="desktop" alt="logo EMOS" />
+            <span className="sr-only">EMOS Río Cuarto</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="toggle">
+          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg">
             <i className="fas fa-bars"></i>
           </Navbar.Toggle>
-          <Navbar.Collapse id="toggle">
-            <Nav className="ms-auto">
-              <Link
-                href="/Institucional"
-                className={`nav-link ${pathname === "/Institucional" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Institucional
-              </Link>
-              <Link
-                href="/tramites"
-                className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Trámites
-              </Link>
-              <Link
-                href="/biblioteca"
-                className={`nav-link ${pathname === "/biblioteca" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Biblioteca
-              </Link>
-              <Link
-                href="/noticias"
-                className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Noticias
-              </Link>
-              {/* <Link
-                href="/design"
-                className={`nav-link ${pathname === "/design" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                design
-              </Link> */}
-
-              {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
-                Pagos y Deudas
-              </Link> */}
-              {/* <NavDropdown
-                title="Recursos"
-                show={dropdownOpen}
-                onToggle={() => setDropdownOpen(!dropdownOpen)}
-              >
-                <NavDropdown.Item as={Link} href="/mapas/" onClick={handleDropdownItemClick}>
-                  Mapas
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} href="/test/" onClick={handleDropdownItemClick}>
-                  Test
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/design">Design</NavDropdown.Item>
-              </NavDropdown> */}
-              {/* <Nav.Link
-                href="https://facebook.com"
-                target="_blank"
-              >
-                <i className={`fa-brands fa-fw fa-facebook`}></i>
-                <span className="d-lg-none">Facebook</span>
-                <span className="sr-only">Facebook</span>
-              </Nav.Link>
-              <Nav.Link href="https://instagram.com" target="_blank" className="">
-                <i className={`fa-brands fa-fw fa-instagram`}></i> <span className="d-lg-none">Instagram</span>
-                <span className="sr-only">Instagram</span>
-              </Nav.Link>
-              <Nav.Link href="https://youtube.com" target="_blank" className="">
-                <i className={`fa-brands fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
-                <span className="sr-only">Youtube</span>
-              </Nav.Link> */}
-              <Nav.Link onClick={handleSearchModalShow}>
-                <i className="fa fa-fw fa-search"></i>{" "}
-                <span className="d-lg-none">Buscar</span>
-                <span className="sr-only">Buscar</span>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+          <Navbar.Offcanvas
+            id="offcanvasNavbar-expand-lg"
+            aria-labelledby="offcanvasNavbarLabel-expand-lg"
+            placement="end"
+            show={expanded}
+            onHide={() => setExpanded(false)}
+          >
+            <Offcanvas.Header closeButton closeVariant="white">
+              <div className="offcanvas-logo-container">
+                <Image
+                  src={LogoDesktop}
+                  className="slogan-logo-nav"
+                  alt="logo EMOS"
+                />
+              </div>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="ms-auto">
+                <Link
+                  href="/Institucional"
+                  className={`nav-link ${pathname === "/Institucional" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Institucional
+                </Link>
+                <Link
+                  href="/tramites"
+                  className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Trámites
+                </Link>
+                <Link
+                  href="/biblioteca"
+                  className={`nav-link ${pathname === "/biblioteca" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Biblioteca
+                </Link>
+                <Link
+                  href="/noticias"
+                  className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Noticias
+                </Link>
+                <Nav.Link onClick={handleSearchModalShow}>
+                  <i className="fa fa-fw fa-search"></i>{" "}
+                  <span className="d-lg-none">Buscar</span>
+                  <span className="sr-only">Buscar</span>
+                </Nav.Link>
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
         </Container>
       </Navbar>
       <SearchModal
