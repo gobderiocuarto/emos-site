@@ -78,6 +78,31 @@
       transition: transform 0.2s ease;
     }
   }
+
+  // Variantes de color
+  &--primary {
+    .service-card__icon { background: rgba($primary, 0.1); color: $primary; }
+    &:hover .service-card__icon { background: $primary; color: #fff; }
+    &:hover .service-card__cta { color: $primary; }
+  }
+
+  &--success {
+    .service-card__icon { background: rgba($success, 0.1); color: $success; }
+    &:hover .service-card__icon { background: $success; color: #fff; }
+    &:hover .service-card__cta { color: $success; }
+  }
+
+  &--secondary {
+    .service-card__icon { background: rgba($secondary, 0.1); color: $secondary; }
+    &:hover .service-card__icon { background: $secondary; color: #fff; }
+    &:hover .service-card__cta { color: $secondary; }
+  }
+
+  &--pink {
+    .service-card__icon { background: rgba($info, 0.1); color: $info; }
+    &:hover .service-card__icon { background: $info; color: #fff; }
+    &:hover .service-card__cta { color: $info; }
+  }
 }
 
 // ── EMOS Banners (matriculados, estudios) ───────────────────
