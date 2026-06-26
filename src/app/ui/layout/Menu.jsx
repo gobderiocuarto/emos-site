@@ -7,8 +7,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal negro.png";
-import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal negro.png";
+import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal color.png";
+import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal color.png";
 import SearchModal from "../commons/SearchModal";
 import BackArrow from "./BackArrow";
 
@@ -43,16 +43,31 @@ export default function Menu() {
       <div className="topbar d-none d-lg-block">
         <Container className="d-flex align-items-center justify-content-end">
           <div className="topbar__social">
-            <a href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a
+              href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
               <i className="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://www.instagram.com/emos_riocuarto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/emos_riocuarto/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <i className="fa-brands fa-instagram"></i>
             </a>
           </div>
           <span className="topbar__divider"></span>
           <div className="topbar__contacts">
-            <a href="https://wa.me/543584111395" target="_blank" rel="noreferrer" className="topbar__item">
+            <a
+              href="https://wa.me/543584111395"
+              target="_blank"
+              rel="noreferrer"
+              className="topbar__item"
+            >
               <i className="fa-brands fa-whatsapp"></i>
               <span>Reclamos 358 4111 395</span>
             </a>
