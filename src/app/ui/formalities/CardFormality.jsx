@@ -17,9 +17,6 @@ export default function FormalitiesCard({ formality }) {
         </div>
 
         <div className="overflow-hidden flex-grow-1">
-          <span className="formality-area-badge">
-            {formality.area?.name || "Sin área"}
-          </span>
           <h5 className="formality-title">{formality.title}</h5>
         </div>
 

@@ -14,7 +14,7 @@ export default function Buttons({ links }) {
               href={link.link}
               target={link.target}
               rel="noopener noreferrer"
-              className="btn btn-info btn-lg text-white w-100" // w-100 para ancho completo
+              className="btn btn-primary btn-lg text-white w-100"
             >
               <span dangerouslySetInnerHTML={{ __html: link.name }} />
             </a>

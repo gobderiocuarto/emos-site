@@ -1,6 +1,66 @@
+// ── Topbar (teléfonos + redes) ───────────────────────────────
+.topbar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 6px 0;
+  font-size: 0.82rem;
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    i {
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 18px;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      color: #444;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// ── Navbar principal ────────────────────────────────────────
 .navbar {
   padding: 5px;
-  background-color: darken($primary, 0);
+  background-color: #fff;
+  box-shadow: none !important;
+  border-bottom: none !important;
 
   &-brand {
     .mobile {
@@ -30,7 +90,7 @@
     padding: 10px;
     border-radius: 0;
     border: 0;
-    color: white;
+    color: #1a1a2e;
     scale: 1.2;
   }
 
@@ -42,13 +102,20 @@
       font-weight: 500;
       font-size: 0.9rem !important;
       letter-spacing: 0.01rem;
-      color: white;
+      color: #1a1a2e;
       display: inline-block;
       padding: 15px 0;
       transition: all 0.2s ease;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+
+      &:hover {
+        color: $primary;
+      }
 
       &.active {
-        color: white !important;
+        color: $primary !important;
         font-weight: 800;
         position: relative;
 
@@ -57,7 +124,7 @@
           display: block;
           height: 2px;
           width: 40px;
-          background-color: $secondary;
+          background-color: $primary;
           margin-top: 5px;
         }
       }
@@ -72,7 +139,7 @@
         text-transform: uppercase;
         font-size: 0.9rem;
         font-weight: 500;
-        color: white;
+        color: #1a1a2e;
       }
     }
   }
@@ -80,18 +147,17 @@
 
 // Portaled Offcanvas styles (outside .navbar)
 .offcanvas {
-  background-color: #008cc8 !important;
-  color: white;
+  background-color: #fff !important;
+  color: #1a1a2e;
   width: 50% !important;
   min-width: 250px;
 
   &-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 20px;
 
     .btn-close {
-      filter: invert(1) grayscale(100%) brightness(200%);
-      opacity: 0.8;
+      opacity: 0.6;
 
       &:hover {
         opacity: 1;
@@ -119,16 +185,16 @@
     }
 
     .nav-link {
-      color: white !important;
+      color: #1a1a2e !important;
       padding: 15px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       font-size: 1.1rem;
       text-transform: uppercase;
       font-weight: 500;
 
       &.active {
         font-weight: bold;
-        color: white !important;
+        color: $primary !important;
       }
 
       &:last-child {
@@ -182,9 +248,10 @@
       height: 44px !important;
       display: flex !important;
       z-index: 10;
+      color: #1a1a2e !important;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
+        background: rgba(0, 0, 0, 0.05) !important;
       }
 
       i {

@@ -7,8 +7,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
-import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal_blanco.webp";
+import LogoMobile from "../../../../public/images/logos/EMOS_Logo_Horizontal negro.png";
+import LogoDesktop from "../../../../public/images/logos/EMOS_Logo_Horizontal negro.png";
 import SearchModal from "../commons/SearchModal";
 import BackArrow from "./BackArrow";
 
@@ -40,11 +40,35 @@ export default function Menu() {
 
   return (
     <>
+      <div className="topbar d-none d-lg-block">
+        <Container className="d-flex align-items-center justify-content-end">
+          <div className="topbar__social">
+            <a href="https://www.facebook.com/people/EMOS-R%C3%ADo-Cuarto/100068874804082/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/emos_riocuarto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <span className="topbar__divider"></span>
+          <div className="topbar__contacts">
+            <a href="https://wa.me/543584111395" target="_blank" rel="noreferrer" className="topbar__item">
+              <i className="fa-brands fa-whatsapp"></i>
+              <span>Reclamos 358 4111 395</span>
+            </a>
+            <a href="tel:3584768401" className="topbar__item">
+              <i className="fa-solid fa-phone"></i>
+              <span>Guardia 358 4768 401</span>
+            </a>
+          </div>
+        </Container>
+      </div>
+
       <Navbar
         collapseOnSelect
         expand="lg"
         sticky="top"
-        variant="dark"
+        variant="light"
         expanded={expanded}
         onToggle={() => setExpanded(!expanded)}
         data-read
@@ -66,7 +90,7 @@ export default function Menu() {
             show={expanded}
             onHide={() => setExpanded(false)}
           >
-            <Offcanvas.Header closeButton closeVariant="white">
+            <Offcanvas.Header closeButton>
               <div className="offcanvas-logo-container">
                 <Image
                   src={LogoDesktop}

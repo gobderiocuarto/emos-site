@@ -1,5 +1,3 @@
-import RelatedNews from "@/app/ui/news/RelatedNews";
-import RelatedBiblioteca from "@/app/ui/ambiental/RelatedBiblioteca";
 import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
@@ -57,11 +55,6 @@ export default async function SeccionDetail({ params }) {
               <div className="mb-4 d-none d-md-block">
                 <Buttons links={detailEntry.links} />
               </div>
-              {detailEntry.type === "other" ? (
-                <RelatedBiblioteca currentSlug={slug} />
-              ) : (
-                <RelatedNews title="Noticias Relacionadas" limit={3} />
-              )}
             </div>
           </div>
         </div>

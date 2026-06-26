@@ -18,6 +18,7 @@ export default function DetailNews({ detailNews }) {
   const {
     title,
     description,
+    excerpt,
     image,
     published_at,
     body,
@@ -30,17 +31,25 @@ export default function DetailNews({ detailNews }) {
     <article>
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
-        <span>{new Date(published_at).toLocaleDateString()}</span>
+        <span>{new Date(published_at).toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "numeric" })}</span>
         {`>`}
         <span>{owner_area.name}</span>
       </div>
       <h1 className="news-detail--title">{title}</h1>
+      {excerpt && <p className="news-detail--excerpt mt-1 mb-4">{excerpt}</p>}
       {/* eslint-disable-next-line */}
-      {image && <img src={image} alt={title} className="news-detail--image" />}
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          className="news-detail--image w-100"
+          style={{ height: "auto" }}
+        />
+      )}
 
       <p className="news-detail--description">{description}</p>
 
-      <ShareSocial title={title} />
+      <ShareSocial title={title} text={excerpt} />
 
       <hr />
 
@@ -52,7 +61,10 @@ export default function DetailNews({ detailNews }) {
       {embedded && (
         <div className="news-detail--embedded">
           <h3 className="news-detail--subtitle">Multimedia</h3>
-          <div dangerouslySetInnerHTML={{ __html: embedded }} />
+          <div
+            className="video-responsive"
+            dangerouslySetInnerHTML={{ __html: embedded }}
+          />
         </div>
       )}
 

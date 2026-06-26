@@ -42,11 +42,19 @@ export async function fetchAllNews({ area = "emos" } = {}) {
   return data.data ?? [];
 }
 
-export async function fetchPosts({ page = 1, limit = 9, area = "emos" } = {}) {
-  const res = await fetch(
-    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
-    API_OPTIONS
-  );
+export async function fetchPosts({
+  page = 1,
+  limit = 9,
+  area = "emos",
+  highlighted_area = null,
+} = {}) {
+  let url = `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`;
+
+  if (highlighted_area !== null) {
+    url += `&highlighted_area=${highlighted_area}`;
+  }
+
+  const res = await fetch(url, API_OPTIONS);
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");

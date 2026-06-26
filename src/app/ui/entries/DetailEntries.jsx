@@ -49,10 +49,6 @@ export default function DetailEntries({ detailEntry }) {
         )}
         <div className={hasThumbnail ? "col-md-9" : "col-md-12"}>
           <div className="entries-detail--content">
-            <div className="entries-detail--pretitle">
-              <ListIcons icons={LIST_OF_ICONS} />
-              <span className="entries-detail--area">{area.name}</span>
-            </div>
             <h1 className="entries-detail--title">{title}</h1>
             <p className="entries-detail--subtitle">{summary}</p>
             <div
@@ -68,7 +64,7 @@ export default function DetailEntries({ detailEntry }) {
                       href={link.link}
                       target={link.target}
                       rel="noopener noreferrer"
-                      className="btn btn-info btn-lg text-white"
+                      className="btn btn-primary btn-lg text-white"
                     >
                       <span dangerouslySetInnerHTML={{ __html: link.name }} />
                     </a>
