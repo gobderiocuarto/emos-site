@@ -60,7 +60,7 @@
   padding: 5px;
   background-color: #fff;
   box-shadow: none !important;
-  border-bottom: none !important;
+  border-bottom: 4px solid $primary !important;
 
   &-brand {
     .mobile {

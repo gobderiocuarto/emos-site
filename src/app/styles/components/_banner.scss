@@ -81,25 +81,33 @@
 
   // Variantes de color
   &--primary {
-    .service-card__icon { background: rgba($primary, 0.1); color: $primary; }
+    background: rgba($primary, 0.06);
+    border-color: rgba($primary, 0.1);
+    .service-card__icon { background: rgba($primary, 0.12); color: $primary; }
     &:hover .service-card__icon { background: $primary; color: #fff; }
     &:hover .service-card__cta { color: $primary; }
   }
 
   &--success {
-    .service-card__icon { background: rgba($success, 0.1); color: $success; }
+    background: rgba($success, 0.06);
+    border-color: rgba($success, 0.1);
+    .service-card__icon { background: rgba($success, 0.12); color: $success; }
     &:hover .service-card__icon { background: $success; color: #fff; }
     &:hover .service-card__cta { color: $success; }
   }
 
   &--secondary {
-    .service-card__icon { background: rgba($secondary, 0.1); color: $secondary; }
+    background: rgba($secondary, 0.06);
+    border-color: rgba($secondary, 0.1);
+    .service-card__icon { background: rgba($secondary, 0.12); color: $secondary; }
     &:hover .service-card__icon { background: $secondary; color: #fff; }
     &:hover .service-card__cta { color: $secondary; }
   }
 
   &--pink {
-    .service-card__icon { background: rgba($info, 0.1); color: $info; }
+    background: rgba($info, 0.06);
+    border-color: rgba($info, 0.1);
+    .service-card__icon { background: rgba($info, 0.12); color: $info; }
     &:hover .service-card__icon { background: $info; color: #fff; }
     &:hover .service-card__cta { color: $info; }
   }
