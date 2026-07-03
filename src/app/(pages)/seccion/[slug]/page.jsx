@@ -4,6 +4,7 @@ import DetailEntries from "@/app/ui/entries/DetailEntries";
 import CombinedEntriesAreas from "@/app/ui/areas/CombinedEntriesAreas";
 import NotFound from "@/app/ui/commons/NotFound";
 import Buttons from "@/app/ui/entries/Buttons";
+import SidebarFormalities from "@/app/ui/formalities/SidebarFormalities";
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
@@ -55,6 +56,7 @@ export default async function SeccionDetail({ params }) {
               <div className="mb-4 d-none d-md-block">
                 <Buttons links={detailEntry.links} />
               </div>
+              <SidebarFormalities area={detailEntry.area} />
             </div>
           </div>
         </div>

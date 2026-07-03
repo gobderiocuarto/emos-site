@@ -152,3 +152,65 @@
     }
   }
 }
+
+.sidebar-formalities {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #1a1a2e;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__icon {
+    font-size: 1rem;
+    color: $primary;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($primary, 0.08);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+}

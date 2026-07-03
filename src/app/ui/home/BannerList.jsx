@@ -11,7 +11,7 @@ const banners = [
     external: true,
   },
   {
-    title: "Gestión de Clientes",
+    title: "Gestión Vecinos",
     description:
       "Accedé a la gestión de servicios en tu hogar (trámites de habilitaciones, certificados y pedidos).",
     icon: "fa-house-user",
