@@ -111,6 +111,27 @@
     &:hover .service-card__icon { background: $info; color: #fff; }
     &:hover .service-card__cta { color: $info; }
   }
+
+  &--outline {
+    background: #fff;
+    border: 2px dashed rgba(0, 0, 0, 0.15);
+
+    .service-card__icon {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1a1a2e;
+    }
+
+    .service-card__title,
+    .service-card__desc {
+      color: #1a1a2e;
+    }
+
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.3);
+      .service-card__icon { background: #1a1a2e; color: #fff; }
+      .service-card__cta { color: #1a1a2e; }
+    }
+  }
 }
 
 // ── EMOS Banners (matriculados, estudios) ───────────────────

@@ -1,30 +1,9 @@
-import ListIcons from "../icons/ListIcons";
-
-const LIST_OF_ICONS = [
-  {
-    name: "waves",
-    color: "lightblue",
-    size: "20",
-  },
-];
-
 export default function DetailEntries({ detailEntry }) {
   if (!detailEntry) {
     return <div>No se pudo cargar la noticia.</div>;
   }
 
-  const {
-    id,
-    type,
-    pretitle,
-    title,
-    thumbnail,
-    summary,
-    body,
-    status,
-    area,
-    links,
-  } = detailEntry;
+  const { title, thumbnail, summary, body, status, links } = detailEntry;
 
   if (status != 1) {
     return "Entrada no encontrada";
@@ -34,49 +13,35 @@ export default function DetailEntries({ detailEntry }) {
 
   return (
     <article className="entries-detail">
-      <div className="row">
-        {hasThumbnail && (
-          <div className="col-md-3">
-            <div className="entries-detail--img">
-              {/* eslint-disable-next-line */}
-              <img
-                src={thumbnail}
-                alt=""
-                className="img-thumbnail w-100"
-              />
-            </div>
+      {hasThumbnail && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={thumbnail} alt="" className="entries-detail--image w-100" />
+      )}
+
+      <div className="entries-detail--content">
+        <h1 className="entries-detail--title">{title}</h1>
+        <p className="entries-detail--subtitle">{summary}</p>
+        <div
+          className="entries-detail--body"
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
+        {links && links.length > 0 && (
+          <div className="row entries-detail--links">
+            {links.map((link, index) => (
+              <div key={index} className="col-md-6">
+                <p>{link.title}</p>
+                <a
+                  href={link.link}
+                  target={link.target}
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-lg text-white"
+                >
+                  <span dangerouslySetInnerHTML={{ __html: link.name }} />
+                </a>
+              </div>
+            ))}
           </div>
         )}
-        <div className={hasThumbnail ? "col-md-9" : "col-md-12"}>
-          <div className="entries-detail--content">
-            <h1 className="entries-detail--title">{title}</h1>
-            <p className="entries-detail--subtitle">{summary}</p>
-            <div
-              className="entries-detail--body"
-              dangerouslySetInnerHTML={{ __html: body }}
-            />
-            {links && links.length > 0 && (
-              <div className="row entries-detail--links">
-                {links.map((link, index) => (
-                  <div key={index} className="col-md-6">
-                    <p>{link.title}</p>
-                    <a
-                      href={link.link}
-                      target={link.target}
-                      rel="noopener noreferrer"
-                      className="btn btn-primary btn-lg text-white"
-                    >
-                      <span dangerouslySetInnerHTML={{ __html: link.name }} />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* <hr /> */}
-            {/* <LinkToBack variant="btn-outline-dark" /> */}
-          </div>
-        </div>
       </div>
     </article>
   );

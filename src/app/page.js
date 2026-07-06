@@ -5,23 +5,20 @@ import ListNews from "./ui/news/ListNews";
 import Hero from "./ui/home/Hero";
 import HeaderSection from "./ui/layout/HeaderSection";
 import Link from "next/link";
-import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import AreaDetail from "./ui/formality/AreaDetail";
-import ListFormalitiesBySlug from "./ui/formalities/ListFormalitiesBySlug";
+import FeaturedFormalities from "./ui/formalities/FeaturedFormalities";
 import ContactsFormailite from "./ui/contacts/ContactsFormailite";
 import BannerList from "./ui/home/BannerList";
 import ProgramsBanner from "./ui/ambiental/ProgramsBanner";
 
 export default async function Home() {
-  const area = await fetchAreaBySlug("emos");
-
   return (
     <main>
       <Hero />
       <BannerList />
 
       <ContactsFormailite />
-      <ListFormalitiesBySlug area={area} />
+      <FeaturedFormalities />
       <ProgramsBanner />
       <div className="container mb-4">
         <ListNews limit={6} area={"emos"} />
