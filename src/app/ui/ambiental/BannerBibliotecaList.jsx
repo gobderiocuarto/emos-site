@@ -17,13 +17,9 @@ export default async function BannerBibliotecaList() {
     );
   }
 
-  const sorted = [...entries].sort((a, b) => {
-    const ai = ORDERED_IDS.indexOf(a.id);
-    const bi = ORDERED_IDS.indexOf(b.id);
-    const aPos = ai === -1 ? Infinity : ai;
-    const bPos = bi === -1 ? Infinity : bi;
-    return aPos - bPos;
-  });
+  const sorted = entries
+    .filter((entry) => ORDERED_IDS.includes(entry.id))
+    .sort((a, b) => ORDERED_IDS.indexOf(a.id) - ORDERED_IDS.indexOf(b.id));
 
   return (
     <section className="biblioteca-list" data-read>

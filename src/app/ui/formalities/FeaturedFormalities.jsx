@@ -22,7 +22,7 @@ export default async function FeaturedFormalities() {
   return (
     <section className="formalities featured-formalities" data-read>
       <div className="container">
-        <HeaderSection title="Trámites" subtitle="Los más solicitados" />
+        <HeaderSection title="Trámites" subtitle="Más consultados" />
 
         <TramitesCarousel formalities={formalities} />
 
