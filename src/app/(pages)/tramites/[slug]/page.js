@@ -3,7 +3,6 @@ import {
   fetchFormalities,
   fetchFormalitiesBySlug,
 } from "@/app/lib/DataFormalities";
-import Banners from "@/app/ui/commons/Banners";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
 import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
@@ -149,14 +148,6 @@ export default async function Formality({ params }) {
           </div>
           <div className="col-md-4">
             <AreaDetail area={area} formality={formality} />
-            <Banners
-              title="Requisitos para hacer trámites Online"
-              text="Para poder realizar los trámites de manera online necesitas tener CiDinivel 2"
-              buttonColor="primary"
-              buttonUrl="https://prensa.cba.gov.ar/informacion-general/ciudadano-digital-el-paso-a-paso-para-obtener-cidi-nivel-2/"
-              buttonText="Obtener CiDI Nivel 2"
-              variant=""
-            />
           </div>
         </div>
       </div>
