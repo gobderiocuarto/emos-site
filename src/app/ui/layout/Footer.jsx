@@ -50,7 +50,7 @@ export default function Footer() {
               <li className="mb-2 d-flex align-items-center justify-content-center justify-content-lg-start">
                 <i className="fa fa-clock fa-fw me-2"></i>
                 <span className="footer-link">
-                  Lunes a Viernes de 7 a 13 hs.
+                  Lunes a Viernes de 07:30 a 13:30 hs.
                 </span>
               </li>
             </ul>

@@ -1,13 +1,14 @@
 import React from "react";
-import { fetchEntries } from "@/app/lib/DataEntries";
+import { getEntryBySlug } from "@/app/lib/DataEntries";
 import CardBiblioteca from "./CardBiblioteca";
 
-const ORDERED_IDS = [91, 241, 242, 243, 244, 245, 90, 101];
+const BIBLIOTECA_SLUG = "biblioteca-ambiental";
 
 export default async function BannerBibliotecaList() {
-  const entries = await fetchEntries("other", "emos");
+  const biblioteca = await getEntryBySlug(BIBLIOTECA_SLUG);
+  const entries = biblioteca?.related_entries || [];
 
-  if (!entries || entries.length === 0) {
+  if (entries.length === 0) {
     return (
       <section className="biblioteca-list">
         <div className="container">
@@ -17,9 +18,7 @@ export default async function BannerBibliotecaList() {
     );
   }
 
-  const sorted = entries
-    .filter((entry) => ORDERED_IDS.includes(entry.id))
-    .sort((a, b) => ORDERED_IDS.indexOf(a.id) - ORDERED_IDS.indexOf(b.id));
+  const sorted = [...entries].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
   return (
     <section className="biblioteca-list" data-read>
