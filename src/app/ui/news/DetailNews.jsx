@@ -1,6 +1,7 @@
 import MyImageGallery from "../commons/ImageGallery";
 import ShareSocial from "../commons/ShareSocial";
 import ListIcons from "../icons/ListIcons";
+import NewsImageCarousel from "./NewsImageCarousel";
 
 const LIST_OF_ICONS = [
   {
@@ -25,6 +26,7 @@ export default function DetailNews({ detailNews }) {
     embedded,
     media,
     owner_area,
+    image_gallery,
   } = detailNews;
 
   return (
@@ -68,9 +70,16 @@ export default function DetailNews({ detailNews }) {
         </div>
       )}
 
+      {Array.isArray(image_gallery) && image_gallery.length > 0 && (
+        <div className="news-detail--gallery mt-4">
+          <h3 className="news-detail--subtitle">Galería de Imágenes</h3>
+          <NewsImageCarousel imageGallery={image_gallery} />
+        </div>
+      )}
+
       {media && media.gallery && media.gallery.length > 0 && (
         <div className="news-detail--gallery">
-          <h3 className="news-detail--subtitle">Galería de Imágenes</h3>
+          <h3 className="news-detail--subtitle">Más imágenes</h3>
           <MyImageGallery photos={media.gallery} />
         </div>
       )}

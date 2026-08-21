@@ -1,0 +1,211 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+export default function NewsImageCarousel({ imageGallery = [] }) {
+  const carouselRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  // Normaliza cada elemento: soporta string URL u objeto { large, small, url, alt }
+  const slides = imageGallery
+    .map((item) => {
+      if (typeof item === "string") {
+        return { src: item, alt: "" };
+      }
+      return {
+        src: item.large || item.url || item.small || "",
+        alt: item.alt || item.caption || "",
+      };
+    })
+    .filter((s) => s.src);
+
+  useEffect(() => {
+    if (!carouselRef.current || slides.length <= 1) return;
+    let bsCarousel;
+    const init = async () => {
+      const { Carousel } = await import("bootstrap/dist/js/bootstrap.esm");
+      bsCarousel = new Carousel(carouselRef.current, {
+        interval: 4000,
+        ride: "carousel",
+        wrap: true,
+      });
+      carouselRef.current.addEventListener("slide.bs.carousel", (e) => {
+        setActiveIndex(e.to);
+      });
+    };
+    init();
+    return () => {
+      if (bsCarousel) bsCarousel.dispose();
+    };
+  }, [slides.length]);
+
+  if (slides.length === 0) return null;
+
+  // Con una sola imagen mostramos solo la imagen, sin controles
+  if (slides.length === 1) {
+    return (
+      <>
+        <div className="news-img-carousel news-img-carousel--single">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={slides[0].src}
+            alt={slides[0].alt}
+            className="news-img-carousel__img"
+            style={{ cursor: "zoom-in" }}
+            onClick={() => {
+              setLightboxIndex(0);
+              setLightboxOpen(true);
+            }}
+          />
+        </div>
+        {lightboxOpen && (
+          <div className="news-lightbox" onClick={() => setLightboxOpen(false)}>
+            <button
+              className="news-lightbox__close"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxOpen(false);
+              }}
+            >
+              &times;
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={slides[0].src}
+              alt={slides[0].alt || "Imagen expandida"}
+              className="news-lightbox__img"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
+      </>
+    );
+  }
+
+  return (
+    <div className="news-img-carousel">
+      <div
+        ref={carouselRef}
+        id="newsImgCarousel"
+        className="carousel slide"
+        data-bs-touch="false"
+      >
+        {/* Indicadores */}
+        <div className="carousel-indicators">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              data-bs-target="#newsImgCarousel"
+              data-bs-slide-to={idx}
+              className={idx === activeIndex ? "active" : ""}
+              aria-label={`Imagen ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Slides */}
+        <div className="carousel-inner">
+          {slides.map((slide, idx) => (
+            <div
+              key={idx}
+              className={`carousel-item${idx === 0 ? " active" : ""}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={slide.src}
+                alt={slide.alt || `Imagen ${idx + 1}`}
+                className="d-block w-100 news-img-carousel__img"
+                style={{ cursor: "zoom-in" }}
+                onClick={() => {
+                  setLightboxIndex(idx);
+                  setLightboxOpen(true);
+                }}
+              />
+              {slide.alt && (
+                <div className="carousel-caption news-img-carousel__caption">
+                  <p className="news-img-carousel__alt">{slide.alt}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Controles */}
+        <button
+          className="carousel-control-prev news-img-carousel__control"
+          type="button"
+          data-bs-target="#newsImgCarousel"
+          data-bs-slide="prev"
+          aria-label="Anterior"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true" />
+          <span className="visually-hidden">Anterior</span>
+        </button>
+        <button
+          className="carousel-control-next news-img-carousel__control"
+          type="button"
+          data-bs-target="#newsImgCarousel"
+          data-bs-slide="next"
+          aria-label="Siguiente"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true" />
+          <span className="visually-hidden">Siguiente</span>
+        </button>
+
+        {/* Contador */}
+        <div className="news-img-carousel__counter">
+          {activeIndex + 1} / {slides.length}
+        </div>
+      </div>
+
+      {/* Lightbox Overlay */}
+      {lightboxOpen && (
+        <div className="news-lightbox" onClick={() => setLightboxOpen(false)}>
+          <button
+            className="news-lightbox__close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxOpen(false);
+            }}
+          >
+            &times;
+          </button>
+
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={slides[lightboxIndex].src}
+            alt={slides[lightboxIndex].alt || "Imagen expandida"}
+            className="news-lightbox__img"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <button
+            className="news-lightbox__control news-lightbox__control--prev"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev - 1 + slides.length) % slides.length);
+            }}
+          >
+            &#10094;
+          </button>
+          <button
+            className="news-lightbox__control news-lightbox__control--next"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev + 1) % slides.length);
+            }}
+          >
+            &#10095;
+          </button>
+
+          <div className="news-lightbox__counter">
+            {lightboxIndex + 1} / {slides.length}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
